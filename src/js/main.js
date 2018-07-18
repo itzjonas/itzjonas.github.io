@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { render } from 'react-dom';
 
 import Loading from './modules/Spinner';
+import { name } from '../../package.json';
 
 import '../less/main.less';
 
@@ -33,9 +34,7 @@ class App extends Component {
     }
 
     getData() {
-        this.setState({
-            isLoading: false,
-        });
+        this.setState({ isLoading: false });
 
         clearInterval(this.incrementer);
     }
@@ -48,7 +47,7 @@ class App extends Component {
         }
 
         return (<Fragment>
-            Welcome!
+            Welcome to <strong>{name}</strong>!
         </Fragment>);
     }
 }

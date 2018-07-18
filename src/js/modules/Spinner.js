@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 /**
  * Requires spin keyframe
  */
-export default function Spinner({ alt, className, color, width, ...other }) {
+export default function Spinner({
+    alt,
+    className,
+    color,
+    width,
+    ...other
+}) {
     const styles = {
         WebkitAnimation: 'spin 1s linear infinite',
         MozAnimation: 'spin 1s linear infinite',
