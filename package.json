@@ -1,33 +1,30 @@
 {
-  "name": "itzjonas.github.io",
-  "version": "1.0.0",
-  "main": "/dist/index.html",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itzjonas/itzjonas.github.io.git"
-  },
-  "author": "Jason Seegmiller <itzjonas@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "start": "parcel ./src/index.html -d tmp --open",
-    "build": "parcel build ./src/js/main.js --detailed-report",
-    "watch": "parcel watch ./src/js/main.js -d tmp"
-  },
-  "babel": {
-    "plugins": [
-      "transform-object-rest-spread",
-      "transform-react-remove-prop-types"
-    ]
-  },
-  "devDependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
-    "eslint": "^5.1.0",
-    "less": "^3.7.1",
-    "parcel-bundler": "^1.9.7"
-  },
-  "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
-  }
+    "name": "itzjonas.github.io",
+    "version": "0.0.2",
+    "main": "/dist/index.html",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/itzjonas/itzjonas.github.io.git"
+    },
+    "author": "Jason Seegmiller <itzjonas@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "build": "parcel build ./src/js/main.js --detailed-report",
+        "nuke": "rm -rf node_modules/",
+        "start": "parcel ./src/index.html -d tmp --open",
+        "watch": "parcel watch ./src/js/main.js -d tmp"
+    },
+    "babel": {
+        "plugins": []
+    },
+    "devDependencies": {
+        "@babel/core": "^7.5.5",
+        "eslint": "^6.2.2",
+        "less": "^3.10.3",
+        "parcel-bundler": "^1.12.3"
+    },
+    "dependencies": {
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
+    }
 }

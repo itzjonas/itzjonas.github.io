@@ -48,6 +48,8 @@ class App extends Component {
 
         return (<Fragment>
             Welcome to <strong>{name}</strong>!
+            <br /><br />
+            🚧 Under Construction 🚧
         </Fragment>);
     }
 }
