@@ -10,12 +10,16 @@
     "license": "MIT",
     "scripts": {
         "build": "parcel build ./src/js/main.js --detailed-report",
-        "nuke": "rm -rf node_modules/",
+        "nuke": "rm -rf node_modules/ yarn.lock",
         "start": "parcel ./src/index.html -d tmp --open",
         "watch": "parcel watch ./src/js/main.js -d tmp"
     },
     "babel": {
         "plugins": []
+    },
+    "engines": {
+        "node": ">=12.9.0",
+        "yarn": ">=1.17.0"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",
