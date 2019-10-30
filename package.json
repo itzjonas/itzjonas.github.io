@@ -18,17 +18,18 @@
         "plugins": []
     },
     "engines": {
-        "node": ">=12.9.0",
-        "yarn": ">=1.17.0"
+        "node": ">=13.0.1",
+        "yarn": ">=1.19.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.5.5",
-        "eslint": "^6.2.2",
+        "@babel/core": "^7.6.4",
+        "eslint": "^6.6.0",
         "less": "^3.10.3",
-        "parcel-bundler": "^1.12.3"
+        "parcel-bundler": "^1.12.4",
+        "yarn": "^1.19.1"
     },
     "dependencies": {
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0"
+        "react": "^16.11.0",
+        "react-dom": "^16.11.0"
     }
 }

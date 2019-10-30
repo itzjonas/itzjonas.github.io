@@ -1,57 +1,34 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { render } from 'react-dom';
 
+import { useLoading } from './utils/hooks';
 import Loading from './modules/Spinner';
 import { name } from '../../package.json';
 
 import '../less/main.less';
 
-class App extends Component {
-    constructor() {
-        super();
+function App () {
+    const [loading, load] = useLoading();
 
-        this.MS_INCREMENTS = 50;
-        this.MAX_LOADING_MS = 200;
-
-        this.state = {
-            isLoading: true,
-            msElapsed: 0
-        };
-
-        this.getData = this.getData.bind(this);
+    function sleep(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
     }
 
-    componentWillMount() {
-        this.incrementer = setInterval(() =>
-            this.setState({
-                msElapsed: this.state.msElapsed + this.MS_INCREMENTS
-            }),
-        this.MS_INCREMENTS);
+    useEffect(() => {
+        load(sleep(2000)); // fake a loading
+    }, []);
+
+    if (loading) {
+        return (<Loading color="#2DD155" />);
     }
 
-    componentDidMount() {
-        this.getData();
-    }
-
-    getData() {
-        this.setState({ isLoading: false });
-
-        clearInterval(this.incrementer);
-    }
-
-    render() {
-        if (this.state.isLoading && this.state.msElapsed <= this.MAX_LOADING_MS) {
-            return (<Loading color="#2DD155" />);
-        } else if (this.state.isLoading && this.state.msElapsed > this.MAX_LOADING_MS) {
-            return (<div className="failed">FAILED TO LOAD!</div>);
-        }
-
-        return (<Fragment>
+    return (
+        <Fragment>
             Welcome to <strong>{name}</strong>!
             <br /><br />
             🚧 Under Construction 🚧
-        </Fragment>);
-    }
+        </Fragment>
+    );
 }
 
 render(<App />, document.getElementById('app'));

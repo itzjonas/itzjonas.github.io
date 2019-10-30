@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Spinner.less';
+
 /**
  * Requires spin keyframe
  */
@@ -14,14 +16,13 @@ export default function Spinner({
     const styles = {
         WebkitAnimation: 'spin 1s linear infinite',
         MozAnimation: 'spin 1s linear infinite',
-        animation: 'spin 1s linear infinite'
+        animation: 'spin 1s linear infinite',
     };
 
     return (
         <svg
             alt={alt}
             style={styles}
-            className={className}
             viewBox="0 0 34 34"
             width={width}
             {...other}
@@ -39,14 +40,12 @@ export default function Spinner({
 
 Spinner.defaultProps = {
     alt: 'loading...',
-    className: 'default',
     color: '#DADCDF',
     width: '34px'
 };
 
 Spinner.propTypes = {
     alt: PropTypes.string,
-    className: PropTypes.string,
     color: PropTypes.string,
     width: PropTypes.string,
 };
