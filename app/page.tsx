@@ -1,6 +1,12 @@
+import { getSortedPostsData } from '@/lib/posts';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
+  const allPostsData = getSortedPostsData();
+
+  console.log(allPostsData);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 sm:p-8 md:p-16 lg:p-20 pb-8 sm:pb-12 md:pb-16 lg:pb-20 gap-8 sm:gap-12 md:gap-16 font-[family-name:var(--font-geist-sans)] bg-80s-black text-80s-white">
       <main className="flex flex-col gap-8 sm:gap-12 md:gap-16 row-start-2 items-center max-w-screen-sm">
@@ -28,6 +34,19 @@ export default function Home() {
           <p className="mt-2 sm:mt-4 text-sm text-80s-magenta drop-shadow-[0_0_8px_hsl(var(--80s-magenta))]">
             (Patience is a virtue, just like a high score on Pac-Man.)
           </p>
+
+          {/* <h1>Blog Posts</h1>
+          <ul>
+            {allPostsData.map(({ id, date, title }) => (
+              <li key={id}>
+                <Link href={`/posts/${id}`}>
+                  {title}
+                </Link>
+                <br />
+                {new Date(date).toLocaleDateString()}
+              </li>
+            ))}
+          </ul> */}
         </div>
       </main>
       <footer className="row-start-3 flex gap-4 sm:gap-8 md:gap-12 flex-wrap items-center justify-center">
