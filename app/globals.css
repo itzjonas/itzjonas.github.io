@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --font-press-start-2p: var(--font-press-start-2p);
+
+  --80s-pink: #FF69B4;
+  --80s-cyan: #00FFFF;
+  --80s-magenta: #FF00FF;
+  --80s-yellow: #FFFF00;
+  --80s-purple: #800080;
+  --80s-black: #121212;
+  --80s-white: #F0F0F0;
+}
+
+body, h1, p {
+  font-family: var(--font-press-start-2p), Arial, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-80s-pink: var(--80s-pink);
+  --color-80s-cyan: var(--80s-cyan);
+  --color-80s-magenta: var(--80s-magenta);
+  --color-80s-yellow: var(--80s-yellow);
+  --color-80s-purple: var(--80s-purple);
+  --color-80s-black: var(--80s-black);
+  --color-80s-white: var(--80s-white);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Optional: Add 80s gradient class */
+.bg-80s-gradient {
+  background: linear-gradient(135deg, var(--color-80s-cyan), var(--color-80s-magenta));
+}
