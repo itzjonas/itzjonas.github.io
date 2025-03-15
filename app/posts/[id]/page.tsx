@@ -5,14 +5,16 @@ import MDXContent from './MDXContent';
 // TYPES
 import type { PostData } from '@/types/post';
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<
+  Array<{ params: { id: string } }>
+> {
   const paths = getAllPostIds();
   return paths.map((path) => ({ params: path.params }));
 }
 
 export async function generateMetadata({ params }) {
   const postData = await getPostData(params.id);
-  
+
   return {
     description: postData.description,
     title: postData.title,

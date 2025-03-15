@@ -17,11 +17,11 @@ export function getSortedPostsData(): PostData[] {
     const matterResult = matter(fileContents);
 
     const postData: PostData = {
+      content: matterResult.content,
       date: matterResult.data.date as string,
       description: matterResult.data.description as string,
       id,
       title: matterResult.data.title as string,
-      content: matterResult.content, // Extract content from the MDX file
     };
 
     return postData;
@@ -53,14 +53,14 @@ export async function getPostData(id: string): Promise<PostData> {
   const filePath = path.join(postsDirectory, `${id}.mdx`);
   const fileContent = fs.readFileSync(filePath, 'utf-8');
 
-  const { data, content } = matter(fileContent); // Parse the frontmatter and content
+  const { data, content } = matter(fileContent);
 
   const postData: PostData = {
-    content, // Content from the MDX file
-    date: data.date as string, // Extracted from the frontmatter
-    description: data.description as string, // Extracted from the frontmatter
+    content,
+    date: data.date as string,
+    description: data.description as string,
     id,
-    title: data.title as string, // Extracted from the frontmatter
+    title: data.title as string,
   };
 
   return postData;
