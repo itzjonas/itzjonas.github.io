@@ -1,4 +1,13 @@
-const Button = ({ children, onClick, className, ...props }) => {
+import { MouseEventHandler, ReactNode } from 'react';
+
+// TYPES
+interface ButtonProps {
+  children?: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
+}
+
+const Button = ({ children, className, onClick, ...props }: ButtonProps) => {
   return (
     <button
       onClick={onClick}

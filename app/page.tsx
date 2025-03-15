@@ -112,10 +112,10 @@ export default function Home() {
             {/* Beyond, Inc. */}
             <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
-                Beyond, Inc.
+                Staff Frontend Developer | October 2024 - March 2025
               </h3>
               <p className="text-80s-yellow mb-2">
-                Staff Frontend Developer | October 2024 - March 2025
+                Beyond, Inc.
               </p>
               <ul className="list-disc list-inside text-80s-light-gray">
                 <li>

@@ -1,7 +1,14 @@
 'use client';
 
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-export default function MDXContent({ source }) {
-  return <MDXRemote {...source} />;
+// TYPES
+interface MDXContentProps {
+  source: MDXRemoteSerializeResult;
 }
+
+const MDXContent: React.FC<MDXContentProps> = ({ source }) => {
+  return <MDXRemote {...source} />;
+};
+
+export default MDXContent;
