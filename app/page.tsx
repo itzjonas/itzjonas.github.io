@@ -10,12 +10,12 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
               <div className="relative rounded-full overflow-hidden w-80 md:w-96 lg:w-[500px] aspect-square shadow-[0_0_20px_hsl(var(--80s-cyan))]">
                 <Image
-                  alt="Jason Seegmiller"
-                  src="/profile.jpeg"
-                  fill
+                  alt="JSON"
                   className="object-cover"
+                  fill
                   priority
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  src="/profile.jpeg"
                 />
               </div>
 
