@@ -24,7 +24,7 @@ const Navbar = () => {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/arcade', label: 'Arcade' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/posts', label: 'Blog' },
   ];
 
   return (
