@@ -1,9 +1,14 @@
-import { getPostData } from '@/lib/posts';
+import { getAllPostIds, getPostData } from '@/lib/posts';
 import { serialize } from 'next-mdx-remote/serialize';
 import MDXContent from './MDXContent';
 
 // TYPES
 import type { PostData } from '@/types/post';
+
+export async function generateStaticParams() {
+  const paths = getAllPostIds();
+  return paths.map((path) => ({ params: path.params }));
+}
 
 export async function generateMetadata({ params }) {
   const postData = await getPostData(params.id);
