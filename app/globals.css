@@ -1,38 +1,50 @@
 @import "tailwindcss";
 
+/* -------------------------------------------------- */
+/* Root Variables (Theme and Layout) */
+/* -------------------------------------------------- */
+
 :root {
+  /* Theme Colors */
+  --80s-black: #121212;
+  --80s-cyan: #00FFFF;
+  --80s-green: #39FF14;
+  --80s-magenta: #FF00FF;
+  --80s-pink: #FF69B4;
+  --80s-purple: #800080;
+  --80s-white: #F0F0F0;
+  --80s-yellow: #FFFF00;
+
+  /* Layout Heights */
+  --audio-player-height: 53px;
+  --navbar-height-mobile: 57px;
+  --navbar-height-desktop: 73px;
+
+  /* Default Light Theme */
   --background: #ffffff;
   --foreground: #171717;
 
+  /* Fonts */
   --font-press-start-2p: var(--font-press-start-2p);
-
-  --80s-pink: #FF69B4;
-  --80s-cyan: #00FFFF;
-  --80s-magenta: #FF00FF;
-  --80s-yellow: #FFFF00;
-  --80s-purple: #800080;
-  --80s-black: #121212;
-  --80s-white: #F0F0F0;
 }
+
+/* -------------------------------------------------- */
+/* Base Styles */
+/* -------------------------------------------------- */
 
 body, h1, p {
   font-family: var(--font-press-start-2p), Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-
-  --color-80s-pink: var(--80s-pink);
-  --color-80s-cyan: var(--80s-cyan);
-  --color-80s-magenta: var(--80s-magenta);
-  --color-80s-yellow: var(--80s-yellow);
-  --color-80s-purple: var(--80s-purple);
-  --color-80s-black: var(--80s-black);
-  --color-80s-white: var(--80s-white);
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* -------------------------------------------------- */
+/* Dark Theme (Media Query) */
+/* -------------------------------------------------- */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -41,13 +53,57 @@ body, h1, p {
   }
 }
 
-body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* -------------------------------------------------- */
+/* Animations */
+/* -------------------------------------------------- */
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
-/* Optional: Add 80s gradient class */
+.animate-marquee {
+  animation-name: marquee;
+}
+
+/* -------------------------------------------------- */
+/* Theme Inline (Tailwind) */
+/* -------------------------------------------------- */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-80s-black: var(--80s-black);
+  --color-80s-cyan: var(--80s-cyan);
+  --color-80s-green: var(--80s-green);
+  --color-80s-magenta: var(--80s-magenta);
+  --color-80s-pink: var(--80s-pink);
+  --color-80s-purple: var(--80s-purple);
+  --color-80s-white: var(--80s-white);
+  --color-80s-yellow: var(--80s-yellow);
+}
+
+/* -------------------------------------------------- */
+/* Layout Styles */
+/* -------------------------------------------------- */
+
+main {
+  padding-top: calc(var(--audio-player-height) + var(--navbar-height-mobile));
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-top: calc(var(--audio-player-height) + var(--navbar-height-desktop));
+  }
+}
+
+/* -------------------------------------------------- */
+/* Optional: 80s Gradient Class */
+/* -------------------------------------------------- */
+
 .bg-80s-gradient {
   background: linear-gradient(135deg, var(--color-80s-cyan), var(--color-80s-magenta));
 }

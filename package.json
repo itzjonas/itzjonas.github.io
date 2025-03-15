@@ -1,6 +1,6 @@
 {
   "name": "itzjonas.github.io",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -11,6 +11,7 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "gray-matter": "^4.0.3",
+    "lucide-react": "^0.482.0",
     "next": "15.2.2",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",
