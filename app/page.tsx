@@ -27,7 +27,7 @@ export default function Home() {
                   Staff Frontend Developer at Beyond, Inc.
                 </p>
                 <p className="text-80s-yellow drop-shadow-[0_0_8px_hsl(var(--80s-yellow))]">
-                  Totally tubular web developer with a passion for crafting rad user experiences. Let's build something awesome!
+                  Totally tubular web developer with a passion for crafting rad user experiences. Let&apos;s build something awesome!
                 </p>
               </div>
             </div>
@@ -39,13 +39,13 @@ export default function Home() {
               About Me
             </h2>
             <p className="text-80s-light-gray">
-              Greetings, fellow traveler of the information superhighway! I'm Jason, a dedicated Staff Frontend Developer at Beyond, Inc., with a knack for turning digital dreams into reality.
+              Greetings, fellow traveler of the information superhighway! I&apos;m Jason, a dedicated Staff Frontend Developer at Beyond, Inc., with a knack for turning digital dreams into reality.
             </p>
             <p className="text-80s-light-gray mt-4">
-              My journey in the realm of web development has been an exciting one, filled with challenges and triumphs. From scaling MVPs to transitioning apps to Next.js with TypeScript, I've always been eager to learn and adapt.
+              My journey in the realm of web development has been an exciting one, filled with challenges and triumphs. From scaling MVPs to transitioning apps to Next.js with TypeScript, I&apos;ve always been eager to learn and adapt.
             </p>
             <p className="text-80s-light-gray mt-4">
-              I'm passionate about delivering high-quality user experiences, focusing on mobile-first principles, performance optimization, and core web vitals. I thrive on collaboration and problem-solving, and I'm always ready to tackle the next coding quest.
+              I&apos;m passionate about delivering high-quality user experiences, focusing on mobile-first principles, performance optimization, and core web vitals. I thrive on collaboration and problem-solving, and I&apos;m always ready to tackle the next coding quest.
             </p>
           </section>
 
@@ -143,7 +143,7 @@ export default function Home() {
                   Ensured testability and error handling, using ESLint and Prettier.
                 </li>
                 <li>
-                  Took on an "A-Team" role, resolving high-priority issues.
+                  Took on an &quot;A-Team&quot; role, resolving high-priority issues.
                 </li>
                 <li>
                   Worked to relaunch the Beyond+ loyalty program with completely new APIs and coordinated with the Ireland-based team.
@@ -218,7 +218,7 @@ export default function Home() {
                   Wore many hats at XANGO.
                 </li>
                 <li>
-                  Responsible for creating, developing, and managing content across XANGO's web presence.
+                  Responsible for creating, developing, and managing content across XANGO&apos;s web presence.
                 </li>
                 <li>
                   Role included everything from coordinating web projects and email campaigns across departments to ensuring consistency across all digital properties.
@@ -300,7 +300,7 @@ export default function Home() {
               Contact
             </h2>
             <p className="text-80s-light-gray">
-              Want to connect? Reach out and let's chat!
+              Want to connect? Reach out and let&apos;s chat!
             </p>
             <p className="text-80s-yellow mt-4">
               Email: <a href="mailto:itzjonas@gmail.com" className="hover:text-80s-cyan transition-colors duration-200">itzjonas@gmail.com</a>

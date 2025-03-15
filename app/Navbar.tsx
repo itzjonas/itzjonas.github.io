@@ -1,13 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AudioPlayer from '@/app/AudioPlayer';
 import Link from 'next/link';
 
-// TYPES
-import type { Song } from '@/types/song';
-
-const Navbar = ({ songs }: { songs: Song[] }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 

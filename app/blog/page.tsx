@@ -14,7 +14,7 @@ export default function BlogPage() {
           From Floppy Disks to Modern Tricks
         </h1>
         <p className="mt-2 text-lg text-80s-yellow drop-shadow-[0_0_8px_hsl(var(--80s-yellow))]">
-          ...we're going back to the future of web development, 80s style!
+          ...we&apos;re going back to the future of web development, 80s style!
         </p>
       </header>
 
