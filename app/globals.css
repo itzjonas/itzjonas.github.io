@@ -5,41 +5,71 @@
 /* -------------------------------------------------- */
 
 :root {
-  /* Theme Colors */
-  --80s-black: #121212;
-  --80s-cyan: #00FFFF;
-  --80s-green: #39FF14;
-  --80s-magenta: #FF00FF;
-  --80s-pink: #FF69B4;
-  --80s-purple: #800080;
-  --80s-white: #F0F0F0;
-  --80s-yellow: #FFFF00;
+    /* 80s Colors */
+    --80s-black: #121212;
+    --80s-cyan: #00FFFF;
+    --80s-green: #39FF14;
+    --80s-magenta: #FF00FF;
+    --80s-pink: #FF69B4;
+    --80s-purple: #800080;
+    --80s-white: #F0F0F0;
+    --80s-yellow: #FFFF00;
 
-  /* Layout Heights */
-  --audio-player-height: 53px;
-  --navbar-height-mobile: 57px;
-  --navbar-height-desktop: 73px;
+    /* Layout Heights */
+    --audio-player-height: 53px;
+    --navbar-height-mobile: 57px;
+    --navbar-height-desktop: 73px;
 
-  /* Default Light Theme */
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Default Light Theme */
+    --background: #f8f8f8;
+    --foreground: #282828;
+    --primary-light: #007bff;
+    --secondary-light: #6c757d;
+    --border-light: #e0e0e0;
+    --code-bg-light: #f0f0f0;
+    --heading-light: #333333;
+    --link-light: #007bff;
+    --link-hover-light: #0056b3;
+    --secondary-bg-light: #f0f0f0;
+    --accent-light: #00a0e9;
 
-  /* Fonts */
-  --font-press-start-2p: var(--font-press-start-2p);
+    /* Dark Theme */
+    --background-dark: #0a0a0a;
+    --foreground-dark: #ededed;
+    --heading-dark: #ffffff;
+    --link-dark: #4dabf7;
+    --link-hover-dark: #1e88e5;
+    --secondary-bg-dark: #1a1a1a;
+    --accent-dark: #64b5f6;
+
+    /* Fonts */
+    --font-press-start-2p: var(--font-press-start-2p);
 }
 
 /* -------------------------------------------------- */
 /* Base Styles */
 /* -------------------------------------------------- */
 
-body, h1, p {
-  font-family: var(--font-press-start-2p), Arial, sans-serif;
+body,
+h1,
+p {
+    font-family: var(--font-press-start-2p), Arial, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* -------------------------------------------------- */
@@ -47,10 +77,10 @@ body {
 /* -------------------------------------------------- */
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: var(--background-dark);
+        --foreground: var(--foreground-dark);
+    }
 }
 
 /* -------------------------------------------------- */
@@ -58,12 +88,16 @@ body {
 /* -------------------------------------------------- */
 
 @keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .animate-marquee {
-  animation-name: marquee;
+    animation-name: marquee;
 }
 
 /* -------------------------------------------------- */
@@ -71,19 +105,37 @@ body {
 /* -------------------------------------------------- */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 
-  --color-80s-black: var(--80s-black);
-  --color-80s-cyan: var(--80s-cyan);
-  --color-80s-green: var(--80s-green);
-  --color-80s-magenta: var(--80s-magenta);
-  --color-80s-pink: var(--80s-pink);
-  --color-80s-purple: var(--80s-purple);
-  --color-80s-white: var(--80s-white);
-  --color-80s-yellow: var(--80s-yellow);
+    --color-80s-black: var(--80s-black);
+    --color-80s-cyan: var(--80s-cyan);
+    --color-80s-green: var(--80s-green);
+    --color-80s-magenta: var(--80s-magenta);
+    --color-80s-pink: var(--80s-pink);
+    --color-80s-purple: var(--80s-purple);
+    --color-80s-white: var(--80s-white);
+    --color-80s-yellow: var(--80s-yellow);
+
+    /* Light Theme Specific */
+    --color-primary-light: var(--primary-light);
+    --color-secondary-light: var(--secondary-light);
+    --color-border-light: var(--border-light);
+    --color-code-bg-light: var(--code-bg-light);
+    --color-heading-light: var(--heading-light);
+    --color-link-light: var(--link-light);
+    --color-link-hover-light: var(--link-hover-light);
+    --color-secondary-bg-light: var(--secondary-bg-light);
+    --color-accent-light: var(--accent-light);
+
+    /* Dark Theme Specific */
+    --color-heading-dark: var(--heading-dark);
+    --color-link-dark: var(--link-dark);
+    --color-link-hover-dark: var(--link-hover-dark);
+    --color-secondary-bg-dark: var(--secondary-bg-dark);
+    --color-accent-dark: var(--accent-dark);
 }
 
 /* -------------------------------------------------- */
@@ -91,13 +143,13 @@ body {
 /* -------------------------------------------------- */
 
 main {
-  padding-top: calc(var(--audio-player-height) + var(--navbar-height-mobile));
+    padding-top: calc(var(--audio-player-height) + var(--navbar-height-mobile));
 }
 
 @media (min-width: 768px) {
-  main {
-    padding-top: calc(var(--audio-player-height) + var(--navbar-height-desktop));
-  }
+    main {
+        padding-top: calc(var(--audio-player-height) + var(--navbar-height-desktop));
+    }
 }
 
 /* -------------------------------------------------- */
@@ -105,5 +157,51 @@ main {
 /* -------------------------------------------------- */
 
 .bg-80s-gradient {
-  background: linear-gradient(135deg, var(--color-80s-cyan), var(--color-80s-magenta));
+    background: linear-gradient(135deg, var(--color-80s-cyan), var(--color-80s-magenta));
+}
+
+/* -------------------------------------------------- */
+/* Light Theme Specific Styles */
+/* -------------------------------------------------- */
+
+code {
+    background-color: var(--code-bg-light);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+hr {
+    border-color: var(--border-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading-light);
+}
+
+/* -------------------------------------------------- */
+/* Dark Theme Specific Styles */
+/* -------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--heading-dark);
+    }
+
+    a {
+        color: var(--link-dark);
+    }
+
+    a:hover {
+        color: var(--link-hover-dark);
+    }
 }
