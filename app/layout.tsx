@@ -31,16 +31,16 @@ export default function RootLayout({
             filePath: '/audio/nggyu.mp3',
         },
         {
+            displayName: 'Sweet Dreams',
+            filePath: '/audio/sd.mp3',
+        },
+        {
             displayName: 'Don\'t Stop Believin\'',
             filePath: '/audio/dsb.mp3',
         },
         {
             displayName: 'Material Girl',
             filePath: '/audio/mg.mp3',
-        },
-        {
-            displayName: 'Sweet Dreams',
-            filePath: '/audio/sd.mp3',
         },
         {
             displayName: 'Girls Just Wanna Have Fun',

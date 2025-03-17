@@ -277,18 +277,36 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-lg shadow-md border border-80s-magenta">
                 <h3 className="font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
-                  Project 1
+                  Trade
                 </h3>
+                <a href="https://www.bedbathandbeyond.com/trade/profiles/1/Tiffany%20Doe" target="_blank">
+                  <Image
+                    alt="Trade Project"
+                    className="w-full h-48 object-cover rounded-t-lg mb-4"
+                    height={300}
+                    src="/trade.jpeg"
+                    width={500}
+                  />
+                </a>
                 <p className="text-80s-light-gray">
-                  Description of Project 1. You can add links to the project here.
+                  I worked with cross-functional teams to scale an MVP for a growing customer base, setting up DevOps with Git, Bitbucket, Docker, Kubernetes, and Jenkins. I used Next.js, TypeScript, React, and Material UI for the app, and implemented Jest and React Testing Library for testing. The platform enabled trade professionals to create custom boards, access resources, share on social media, earn kickbacks, and generate PDFs for accounting and taxes.
                 </p>
               </div>
               <div className="p-4 rounded-lg shadow-md border border-80s-magenta">
                 <h3 className="font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
-                  Project 2
+                  Loyalty
                 </h3>
+                <a href="https://www.bedbathandbeyond.com/beyondplus/benefits"  target="_blank">
+                  <Image
+                    alt="Loyalty Project"
+                    className="w-full h-48 object-cover rounded-t-lg mb-4"
+                    height={300}
+                    src="/loyalty.jpeg"
+                    width={500}
+                  />
+                </a>
                 <p className="text-80s-light-gray">
-                  Description of Project 2. You can add links to the project here.
+                  I&apos;m passionate about delivering high-quality user experiences, emphasizing mobile-first design, performance optimization, and core web vitals. I also focused on testability and error handling, using tools like ESLint and Prettier for standardized code. In my last role, I played a key part in relaunching the Beyond+ loyalty program with new APIs, working closely with the Ireland-based team to exceed the launch timeline.
                 </p>
               </div>
             </div>

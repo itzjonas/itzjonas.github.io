@@ -3,8 +3,8 @@ import { MouseEventHandler, ReactNode } from 'react';
 // TYPES
 interface ButtonProps {
   children?: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({ children, className, onClick, ...props }: ButtonProps) => {

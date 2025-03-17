@@ -50,16 +50,10 @@
 /* Base Styles */
 /* -------------------------------------------------- */
 
-body,
-h1,
-p {
-    font-family: var(--font-press-start-2p), Arial, sans-serif;
-}
-
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-press-start-2p), Arial, sans-serif;
     line-height: 1.6;
 }
 
@@ -204,4 +198,22 @@ h6 {
     a:hover {
         color: var(--link-hover-dark);
     }
+}
+
+
+.pacman-game-container {
+    align-items: center;
+    background: radial-gradient(circle, #ff00ff, #00ffff, #000);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.pacman-maze {
+    background: #000;
+    border: 4px solid #00ffff;
+    box-shadow: 0 0 20px #ff00ff;
+    height: 620px;
+    position: relative;
+    width: 560px;
 }

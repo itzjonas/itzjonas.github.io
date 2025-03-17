@@ -1,24 +1,23 @@
 'use client';
 
-import Button from '@/components/Button';
-// import Link from 'next/link';
+import Link from 'next/link';
 
 export default function ArcadePage() {
   const games = [
     {
-      description: 'Defend Earth from relentless alien invaders!',
+      description: 'Blast asteroids and survive in the vast expanse of space.',
+      link: '/arcade/asteroids',
+      title: 'Retro Asteroids',
+    },
+    {
+      description: <>Defend Earth from relentless alien invaders! <span className="text-80s-yellow">Work in Progress</span></>,
       link: '/arcade/space-invaders',
       title: 'Space Invaders Remastered',
     },
     {
-      description: 'Gobble up pellets and avoid those pesky ghosts!',
+      description: <>Gobble up pellets and avoid those pesky ghosts! <span className="text-80s-yellow">Work in Progress</span></>,
       link: '/arcade/pac-man',
       title: 'Pac-Man Turbo',
-    },
-    {
-      description: 'Blast asteroids and survive in the vast expanse of space.',
-      link: '/arcade/asteroids',
-      title: 'Asteroids 3D',
     },
   ];
 
@@ -43,10 +42,9 @@ export default function ArcadePage() {
               {game.title}
             </h2>
             <p className="text-80s-light-gray mb-4">{game.description}</p>
-            <Button>Coming soon</Button>
-            {/* <Link href={game.link} className="text-80s-green hover:text-80s-yellow transition-colors duration-200">
+            <Link href={game.link} className="text-80s-green hover:text-80s-yellow transition-colors duration-200">
               Play Now!
-            </Link> */}
+            </Link>
           </div>
         ))}
       </div>
