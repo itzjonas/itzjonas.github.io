@@ -24,7 +24,7 @@ export default function Home() {
                   Jason Seegmiller
                 </h1>
                 <p className="text-lg text-80s-pink drop-shadow-[0_0_8px_hsl(var(--80s-pink))] mb-4">
-                  Staff Frontend Developer at Beyond, Inc.
+                  Principal Developer at Shed
                 </p>
                 <p className="text-80s-yellow drop-shadow-[0_0_8px_hsl(var(--80s-yellow))]">
                   Totally tubular web developer with a passion for crafting rad user experiences. Let&apos;s build something awesome!
@@ -108,6 +108,19 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-80s-neon-pink drop-shadow-[0_0_8px_hsl(var(--80s-neon-pink))] mb-4">
               Experience
             </h2>
+
+            {/* ShedRx */}
+            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+              <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
+                Principal Developer | March 2025 - Present
+              </h3>
+              <p className="text-80s-yellow mb-2">
+                Shed
+              </p>
+              {/* <ul className="list-disc list-inside text-80s-light-gray">
+                <li></li>
+              </ul> */}
+            </div>
 
             {/* Beyond, Inc. */}
             <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
