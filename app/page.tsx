@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-80s-black text-80s-white">
+    <div className="flex flex-col min-h-screen bg-background text-80s-white">
       <div className="flex-1 p-4 sm:p-8 md:p-16 lg:p-20">
         <div className="max-w-screen-md mx-auto">
           {/* Hero Section */}
@@ -23,7 +23,7 @@ export default function Home() {
                 <h1 className="text-3xl sm:text-4xl font-bold text-80s-cyan drop-shadow-[0_0_8px_hsl(var(--80s-cyan))] mb-4">
                   Jason Seegmiller
                 </h1>
-                <p className="text-lg text-80s-pink drop-shadow-[0_0_8px_hsl(var(--80s-pink))] mb-4">
+                <p className="text-lg text-80s-yellow mb-4">
                   Principal Developer at Shed
                 </p>
                 <p className="text-80s-yellow drop-shadow-[0_0_8px_hsl(var(--80s-yellow))]">
@@ -35,31 +35,31 @@ export default function Home() {
 
           {/* About Section */}
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-80s-neon-pink drop-shadow-[0_0_8px_hsl(var(--80s-neon-pink))] mb-4">
+            <h2 className="text-2xl font-bold text-80s-cyan drop-shadow-[0_0_8px_hsl(var(--80s-cyan))] mb-4">
               About Me
             </h2>
-            <p className="text-80s-light-gray">
+            <p className="text-foreground">
               Greetings, fellow traveler of the information superhighway! I&apos;m Jason, a dedicated Staff Frontend Developer at Beyond, Inc., with a knack for turning digital dreams into reality.
             </p>
-            <p className="text-80s-light-gray mt-4">
+            <p className="text-foreground mt-4">
               My journey in the realm of web development has been an exciting one, filled with challenges and triumphs. From scaling MVPs to transitioning apps to Next.js with TypeScript, I&apos;ve always been eager to learn and adapt.
             </p>
-            <p className="text-80s-light-gray mt-4">
+            <p className="text-foreground mt-4">
               I&apos;m passionate about delivering high-quality user experiences, focusing on mobile-first principles, performance optimization, and core web vitals. I thrive on collaboration and problem-solving, and I&apos;m always ready to tackle the next coding quest.
             </p>
           </section>
 
           {/* Skills Section */}
           <section id="skills" className="mb-16">
-            <h2 className="text-2xl font-bold text-80s-neon-pink drop-shadow-[0_0_8px_hsl(var(--80s-neon-pink))] mb-4">
+            <h2 className="text-2xl font-bold text-80s-cyan drop-shadow-[0_0_8px_hsl(var(--80s-cyan))] mb-4">
               Skills
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="p-4 rounded-lg shadow-md border border-80s-magenta">
+              <div className="p-4 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
                 <h3 className="font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                   Frontend
                 </h3>
-                <ul className="list-disc list-inside text-80s-light-gray">
+                <ul className="list-disc list-inside text-foreground">
                   <li>React.js</li>
                   <li>Next.js</li>
                   <li>TypeScript</li>
@@ -72,11 +72,11 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="p-4 rounded-lg shadow-md border border-80s-magenta">
+              <div className="p-4 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
                 <h3 className="font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                   Backend
                 </h3>
-                <ul className="list-disc list-inside text-80s-light-gray">
+                <ul className="list-disc list-inside text-foreground">
                   <li>Node.js</li>
                   <li>Express</li>
                   <li>REST APIs</li>
@@ -84,11 +84,11 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="p-4 rounded-lg shadow-md border border-80s-magenta">
+              <div className="p-4 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
                 <h3 className="font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                   DevOps & Tools
                 </h3>
-                <ul className="list-disc list-inside text-80s-light-gray">
+                <ul className="list-disc list-inside text-foreground">
                   <li>Git</li>
                   <li>Bitbucket</li>
                   <li>Docker</li>
@@ -105,32 +105,32 @@ export default function Home() {
 
           {/* Experience Section */}
           <section id="experience" className="mb-16">
-            <h2 className="text-2xl font-bold text-80s-neon-pink drop-shadow-[0_0_8px_hsl(var(--80s-neon-pink))] mb-4">
+            <h2 className="text-2xl font-bold text-80s-cyan drop-shadow-[0_0_8px_hsl(var(--80s-cyan))] mb-4">
               Experience
             </h2>
 
             {/* ShedRx */}
-            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+            <div className="mb-8 p-6 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                 Principal Developer | March 2025 - Present
               </h3>
               <p className="text-80s-yellow mb-2">
                 Shed
               </p>
-              {/* <ul className="list-disc list-inside text-80s-light-gray">
+              {/* <ul className="list-disc list-inside text-foreground">
                 <li></li>
               </ul> */}
             </div>
 
             {/* Beyond, Inc. */}
-            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+            <div className="mb-8 p-6 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                 Staff Frontend Developer | October 2024 - March 2025
               </h3>
               <p className="text-80s-yellow mb-2">
                 Beyond, Inc.
               </p>
-              <ul className="list-disc list-inside text-80s-light-gray">
+              <ul className="list-disc list-inside text-foreground">
                 <li>
                   Collaborated with cross-functional teams to scale an MVP and adapt it to a growing customer base.
                 </li>
@@ -168,14 +168,14 @@ export default function Home() {
             </div>
 
             {/* Senior Frontend Developer */}
-            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+            <div className="mb-8 p-6 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                 Senior Frontend Developer | June 2018 - October 2024
               </h3>
               <p className="text-80s-yellow mb-2">
                 Beyond, Inc.
               </p>
-              <ul className="list-disc list-inside text-80s-light-gray">
+              <ul className="list-disc list-inside text-foreground">
                 <li>
                   Transitioned OverstockGovernment.com from a JSX-based Create React App to Next.js with TypeScript, improving scalability, performance, and meeting stringent security standards required by state and federal agencies, including the FBI and NSA.
                 </li>
@@ -192,14 +192,14 @@ export default function Home() {
             </div>
 
             {/* Frontend Developer */}
-            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+            <div className="mb-8 p-6 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                 Frontend Developer | August 2013 - May 2018
               </h3>
               <p className="text-80s-yellow mb-2">
                 Beyond, Inc.
               </p>
-              <ul className="list-disc list-inside text-80s-light-gray">
+              <ul className="list-disc list-inside text-foreground">
                 <li>
                   Responsible for converting designs from Photoshop and Zeplin into functional user interfaces for websites and internal applications.
                 </li>
@@ -219,14 +219,14 @@ export default function Home() {
             </div>
 
             {/* Web Content Manager */}
-            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+            <div className="mb-8 p-6 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                 Web Content Manager | March 2010 - July 2013
               </h3>
               <p className="text-80s-yellow mb-2">
                 XanGo
               </p>
-              <ul className="list-disc list-inside text-80s-light-gray">
+              <ul className="list-disc list-inside text-foreground">
                 <li>
                   Wore many hats at XANGO.
                 </li>
@@ -243,14 +243,14 @@ export default function Home() {
             </div>
 
             {/* Service Desk Specialist */}
-            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+            <div className="mb-8 p-6 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                 Service Desk Specialist | June 2005 - March 2010
               </h3>
               <p className="text-80s-yellow mb-2">
                 XanGo
               </p>
-              <ul className="list-disc list-inside text-80s-light-gray">
+              <ul className="list-disc list-inside text-foreground">
                 <li>
                   Took on roles as Supervisor, Technician, and Agent.
                 </li>
@@ -264,14 +264,14 @@ export default function Home() {
             </div>
 
             {/* Customer Service Agent */}
-            <div className="mb-8 p-6 rounded-lg shadow-md border border-80s-magenta">
+            <div className="mb-8 p-6 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
               <h3 className="text-xl font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                 Customer Service Agent | February 2005 - May 2005
               </h3>
               <p className="text-80s-yellow mb-2">
                 XanGo
               </p>
-              <ul className="list-disc list-inside text-80s-light-gray">
+              <ul className="list-disc list-inside text-foreground">
                 <li>
                   Handled calls, engaging with distributors.
                 </li>
@@ -284,11 +284,11 @@ export default function Home() {
 
           {/* Projects Section */}
           <section id="projects" className="mb-16">
-            <h2 className="text-2xl font-bold text-80s-neon-pink drop-shadow-[0_0_8px_hsl(var(--80s-neon-pink))] mb-4">
+            <h2 className="text-2xl font-bold text-80s-cyan drop-shadow-[0_0_8px_hsl(var(--80s-cyan))] mb-4">
               Projects
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-lg shadow-md border border-80s-magenta">
+              <div className="p-4 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
                 <h3 className="font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                   Trade
                 </h3>
@@ -301,11 +301,11 @@ export default function Home() {
                     width={500}
                   />
                 </a>
-                <p className="text-80s-light-gray">
+                <p className="text-foreground">
                   I worked with cross-functional teams to scale an MVP for a growing customer base, setting up DevOps with Git, Bitbucket, Docker, Kubernetes, and Jenkins. I used Next.js, TypeScript, React, and Material UI for the app, and implemented Jest and React Testing Library for testing. The platform enabled trade professionals to create custom boards, access resources, share on social media, earn kickbacks, and generate PDFs for accounting and taxes.
                 </p>
               </div>
-              <div className="p-4 rounded-lg shadow-md border border-80s-magenta">
+              <div className="p-4 rounded-lg shadow-[0_0_10px_var(--80s-magenta)] border border-80s-magenta">
                 <h3 className="font-semibold text-80s-cyan drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] mb-2">
                   Loyalty
                 </h3>
@@ -318,7 +318,7 @@ export default function Home() {
                     width={500}
                   />
                 </a>
-                <p className="text-80s-light-gray">
+                <p className="text-foreground">
                   I&apos;m passionate about delivering high-quality user experiences, emphasizing mobile-first design, performance optimization, and core web vitals. I also focused on testability and error handling, using tools like ESLint and Prettier for standardized code. In my last role, I played a key part in relaunching the Beyond+ loyalty program with new APIs, working closely with the Ireland-based team to exceed the launch timeline.
                 </p>
               </div>
@@ -327,18 +327,18 @@ export default function Home() {
 
           {/* Contact Section */}
           <section id="contact" className="mb-16">
-            <h2 className="text-2xl font-bold text-80s-neon-pink drop-shadow-[0_0_8px_hsl(var(--80s-neon-pink))] mb-4">
+            <h2 className="text-2xl font-bold text-80s-cyan drop-shadow-[0_0_8px_hsl(var(--80s-cyan))] mb-4">
               Contact
             </h2>
-            <p className="text-80s-light-gray">
+            <p className="text-foreground">
               Want to connect? Reach out and let&apos;s chat!
             </p>
             <p className="text-80s-yellow mt-4">
-              Email: <a href="mailto:itzjonas@gmail.com" className="hover:text-80s-cyan transition-colors duration-200">itzjonas@gmail.com</a>
+              Email: <a href="mailto:itzjonas@gmail.com" className="transition-colors duration-200">itzjonas@gmail.com</a>
             </p>
             <p className="text-80s-yellow mt-2">
               LinkedIn: <a
-                className="hover:text-80s-cyan transition-colors duration-200"
+                className="transition-colors duration-200"
                 href="https://www.linkedin.com/in/jasonseegmiller"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -347,7 +347,7 @@ export default function Home() {
               </a>
             </p>
             <p className="text-80s-yellow mt-2">
-              GitHub: <a href="https://github.com/itzjonas" className="hover:text-80s-cyan transition-colors duration-200">github.com/itzjonas</a>
+              GitHub: <a href="https://github.com/itzjonas" className="transition-colors duration-200">github.com/itzjonas</a>
             </p>
           </section>
         </div>

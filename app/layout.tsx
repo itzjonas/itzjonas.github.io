@@ -54,7 +54,7 @@ export default function RootLayout({
 
     return (
         <html lang="en">
-            <body className={`${pressStart2P.variable} antialiased bg-black`}>
+            <body className={`${pressStart2P.variable} antialiased bg-background`}>
                 <KonamiWrapper initialSongs={initialSongs}>
                     <NavBar />
                     <div className="grid">

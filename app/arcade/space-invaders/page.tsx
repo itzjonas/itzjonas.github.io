@@ -270,15 +270,15 @@ const SpaceInvaders = () => {
   }, [level, gameStatus]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
       <div className="flex justify-between w-full max-w-[800px] mb-2">
-        <div className="text-white text-xl font-bold">Score: {score}</div>
-        <div className="text-white text-xl font-bold">Level: {level}</div>
+        <div className="text-foreground text-xl font-bold">Score: {score}</div>
+        <div className="text-foreground text-xl font-bold">Level: {level}</div>
       </div>
       <div className="relative border border-gray-700 rounded shadow-lg">
-        <canvas ref={canvasRef} style={{ background: 'black' }} />
+        <canvas ref={canvasRef} style={{ background: 'var(--background-dark)' }} />
       </div>
-      <div className="text-white mt-4 text-sm">
+      <div className="text-foreground mt-4 text-sm">
         <p>Controls: Use ← → arrow keys to move and SPACE to shoot</p>
       </div>
     </div>

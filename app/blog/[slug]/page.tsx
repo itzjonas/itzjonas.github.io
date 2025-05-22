@@ -30,14 +30,14 @@ export default async function BlogPost({ params }) {
     const postData = await getPostData(params.slug);
     
     return (
-      <article className="max-w-3xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-2">{postData.title}</h1>
-        <time className="text-gray-500">
+      <article className="max-w-3xl mx-auto py-12 px-4 bg-background text-foreground">
+        <h1 className="text-4xl font-bold mb-2 text-heading drop-shadow-[0_0_8px_hsl(var(--80s-cyan))]">{postData.title}</h1>
+        <time className="text-80s-yellow">
           {format(new Date(postData.date), 'MMMM d, yyyy')}
         </time>
         
         <div 
-          className="prose prose-lg mt-8"
+          className="prose prose-synthwave prose-lg mt-8"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
         />
       </article>

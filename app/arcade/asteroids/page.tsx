@@ -387,8 +387,8 @@ const AsteroidGame = () => {
 
   return (
     <div className="relative w-full h-full" ref={containerRef}>
-        <canvas ref={canvasRef} className="bg-black block w-full h-full" />
-        <div className="absolute top-2 right-2 text-white p-2 bg-black bg-opacity-50 rounded-md">
+        <canvas ref={canvasRef} className="bg-background block w-full h-full" />
+        <div className="absolute top-2 right-2 text-foreground p-2 bg-background bg-opacity-75 rounded-md">
         Score: {score}
         </div>
     </div>  
