@@ -20,18 +20,18 @@
     --navbar-height-mobile: 57px;
     --navbar-height-desktop: 73px;
 
-    /* Default Light Theme */
-    --background: #f8f8f8;
-    --foreground: #282828;
-    --primary-light: #007bff;
-    --secondary-light: #6c757d;
-    --border-light: #e0e0e0;
-    --code-bg-light: #f0f0f0;
-    --heading-light: #333333;
-    --link-light: #007bff;
-    --link-hover-light: #0056b3;
-    --secondary-bg-light: #f0f0f0;
-    --accent-light: #00a0e9;
+    /* Default Light Theme (Commented Out) */
+    /* --background: #f8f8f8; */
+    /* --foreground: #282828; */
+    /* --primary-light: #007bff; */
+    /* --secondary-light: #6c757d; */
+    /* --border-light: #e0e0e0; */
+    /* --code-bg-light: #f0f0f0; */
+    /* --heading-light: #333333; */
+    /* --link-light: #007bff; */
+    /* --link-hover-light: #0056b3; */
+    /* --secondary-bg-light: #f0f0f0; */
+    /* --accent-light: #00a0e9; */
 
     /* Dark Theme */
     --background-dark: #0a0a0a;
@@ -41,6 +41,18 @@
     --link-hover-dark: #1e88e5;
     --secondary-bg-dark: #1a1a1a;
     --accent-dark: #64b5f6;
+
+    /* Set Dark Theme as Default */
+    --background: var(--background-dark);
+    --foreground: var(--foreground-dark);
+    --heading: var(--80s-cyan); /* Updated for neon effect */
+    --link: var(--80s-pink); /* Updated for neon effect */
+    --link-hover: var(--80s-white); /* Updated for neon effect */
+    --secondary-bg: var(--secondary-bg-dark);
+    --accent: var(--accent-dark);
+    --border: var(--border-light); /* Assuming border-light is okay for dark theme, or define --border-dark */
+    --code-bg: var(--secondary-bg-dark); /* Using secondary-bg-dark for code blocks */
+
 
     /* Fonts */
     --font-press-start-2p: var(--font-press-start-2p);
@@ -58,24 +70,29 @@ body {
 }
 
 a {
-    color: var(--primary-light);
+    color: var(--link);
     text-decoration: none;
+    text-shadow: 0 0 4px var(--80s-pink); /* Neon glow for links */
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--link-hover);
+    text-decoration: none; /* Removed underline */
+    text-shadow: 0 0 6px var(--80s-pink), 0 0 10px var(--80s-pink); /* Intensified neon glow for links */
 }
 
 /* -------------------------------------------------- */
-/* Dark Theme (Media Query) */
+/* Dark Theme (Media Query) - Removed as dark is default */
 /* -------------------------------------------------- */
 
+/*
 @media (prefers-color-scheme: dark) {
     :root {
         --background: var(--background-dark);
         --foreground: var(--foreground-dark);
     }
 }
+*/
 
 /* -------------------------------------------------- */
 /* Animations */
@@ -165,7 +182,7 @@ code {
 }
 
 hr {
-    border-color: var(--border-light);
+    border-color: var(--border); /* Use the new --border variable */
 }
 
 h1,
@@ -174,13 +191,15 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--heading-light);
+    color: var(--heading); /* Use the new --heading variable */
+    text-shadow: 0 0 4px var(--80s-cyan), 0 0 8px var(--80s-cyan); /* Neon glow for headings */
 }
 
 /* -------------------------------------------------- */
-/* Dark Theme Specific Styles */
+/* Dark Theme Specific Styles - Applied by default now */
 /* -------------------------------------------------- */
 
+/*
 @media (prefers-color-scheme: dark) {
     h1,
     h2,
@@ -199,7 +218,7 @@ h6 {
         color: var(--link-hover-dark);
     }
 }
-
+*/
 
 .pacman-game-container {
     align-items: center;

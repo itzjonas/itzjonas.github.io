@@ -28,7 +28,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full bg-80s-black text-80s-white fixed top-0 left-0 z-50">
+    <nav className="w-full bg-80s-black text-80s-white fixed top-0 left-0 z-50 shadow-[0_2px_10px_var(--80s-magenta)]">
       <div className="w-full">
         <AudioPlayer />
       </div>
@@ -69,7 +69,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-80s-cyan hover:text-80s-pink transition-colors duration-200 drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] py-2"
+                className="text-80s-cyan hover:text-80s-white transition-colors duration-200 drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] hover:drop-shadow-[0_0_8px_var(--80s-cyan)] py-2"
               >
                 {link.label}
               </Link>
@@ -78,13 +78,13 @@ const Navbar = () => {
         </div>
 
         {isMobile && isOpen && (
-          <div className="absolute top-full left-0 w-full bg-80s-black border-t border-80s-magenta md:hidden">
+          <div className="absolute top-full left-0 w-full bg-80s-black border-t border-80s-magenta md:hidden shadow-[0_-2px_10px_var(--80s-magenta)]">
             <div className="flex flex-col p-4 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-80s-cyan hover:text-80s-pink transition-colors duration-200 drop-shadow-[0_0_4px_hsl(var(--80s-cyan))]"
+                  className="text-80s-cyan hover:text-80s-white transition-colors duration-200 drop-shadow-[0_0_4px_hsl(var(--80s-cyan))] hover:drop-shadow-[0_0_8px_var(--80s-cyan)]"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
