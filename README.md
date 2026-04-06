@@ -7,9 +7,9 @@ This is a [Next.js](https://nextjs.org) project, a totally tubular web canvas fo
 Fire up the development server and get ready to jam:
 
 ```bash
-npm run dev
-# or
 yarn dev
+# or
+npm run dev
 # or
 pnpm dev
 # or

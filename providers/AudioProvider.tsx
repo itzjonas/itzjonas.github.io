@@ -31,6 +31,9 @@ export const AudioProvider = ({ songs, children }: { songs: Song[]; children: Re
 
   const currentSong = songs[currentSongIndex];
 
+  const next = () => setCurrentSongIndex((i) => (i + 1) % songs.length);
+  const prev = () => setCurrentSongIndex((i) => (i - 1 + songs.length) % songs.length);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return; // Add null check
@@ -48,12 +51,13 @@ export const AudioProvider = ({ songs, children }: { songs: Song[]; children: Re
 
     navigator.mediaSession.setActionHandler('play', () => setIsPlaying(true));
     navigator.mediaSession.setActionHandler('pause', () => setIsPlaying(false));
-    navigator.mediaSession.setActionHandler('nexttrack', () => next());
-    navigator.mediaSession.setActionHandler('previoustrack', () => prev());
-  }, [currentSong]);
-
-  const next = () => setCurrentSongIndex((i) => (i + 1) % songs.length);
-  const prev = () => setCurrentSongIndex((i) => (i - 1 + songs.length) % songs.length);
+    navigator.mediaSession.setActionHandler('nexttrack', () =>
+      setCurrentSongIndex((i) => (i + 1) % songs.length),
+    );
+    navigator.mediaSession.setActionHandler('previoustrack', () =>
+      setCurrentSongIndex((i) => (i - 1 + songs.length) % songs.length),
+    );
+  }, [currentSong, songs.length]);
   const play = () => setIsPlaying(true);
   const pause = () => setIsPlaying(false);
 

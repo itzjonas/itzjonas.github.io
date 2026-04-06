@@ -3,6 +3,8 @@ import { getAllPostSlugs, getPostData } from '@/lib/posts';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+type BlogPostPageProps = { params: Promise<{ slug: string }> };
+
 export async function generateStaticParams() {
   const paths = getAllPostSlugs();
   return paths.map((path) => ({
@@ -10,9 +12,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
   try {
-    const postData = await getPostData(params.slug);
+    const postData = await getPostData(slug);
     return {
       title: postData.title,
       description: postData.excerpt || '',
@@ -25,25 +28,27 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   }
 }
 
-export default async function BlogPost({ params }) {
+export default async function BlogPost({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  let postData;
   try {
-    const postData = await getPostData(params.slug);
-    
-    return (
-      <article className="max-w-3xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-2">{postData.title}</h1>
-        <time className="text-gray-500">
-          {format(new Date(postData.date), 'MMMM d, yyyy')}
-        </time>
-        
-        <div 
-          className="prose prose-lg mt-8"
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
-        />
-      </article>
-    );
+    postData = await getPostData(slug);
   } catch (error) {
     console.error('Error loading post:', error);
     return notFound();
   }
+
+  return (
+    <article className="max-w-3xl mx-auto py-12 px-4">
+      <h1 className="text-4xl font-bold mb-2">{postData.title}</h1>
+      <time className="text-gray-500">
+        {format(new Date(postData.date), 'MMMM d, yyyy')}
+      </time>
+
+      <div
+        className="prose prose-lg mt-8"
+        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+      />
+    </article>
+  );
 }
