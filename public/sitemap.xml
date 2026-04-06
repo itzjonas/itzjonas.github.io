@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://itzjonas.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://itzjonas.github.io/arcade</loc>
+    </url>
+    <url>
+        <loc>https://itzjonas.github.io/arcade/asteroids</loc>
+    </url>
+    <url>
+        <loc>https://itzjonas.github.io/arcade/pac-man</loc>
+    </url>
+    <url>
+        <loc>https://itzjonas.github.io/arcade/space-invaders</loc>
+    </url>
+    <url>
+        <loc>https://itzjonas.github.io/blog</loc>
+    </url>
+    <url>
+        <loc>https://itzjonas.github.io/blog/first-post</loc>
+    </url>
+</urlset>

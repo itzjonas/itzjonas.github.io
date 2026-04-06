@@ -4,6 +4,10 @@ export type Profile = {
     company: string;
     location: string;
     tagline: string;
+    /** Hero line 1: plain white display */
+    heroLine1: string;
+    /** Hero line 2: gradient display */
+    heroLine2: string;
     about: string[];
 };
 
@@ -57,11 +61,13 @@ export const profile: Profile = {
     company: 'Shed',
     location: 'Saratoga Springs, UT',
     tagline:
-        'Frontend architecture, React, and shipping polished UX — from healthcare to high-traffic retail.',
+        'Frontend architecture, React, and shipping polished UX from healthcare to high-traffic retail.',
+    heroLine1: 'Jason',
+    heroLine2: 'Seegmiller',
     about: [
-        'I lead the frontend at ShedRx, building web experiences in healthcare tech with React, TypeScript, and Next.js — focused on performance, accessibility, and maintainable architecture.',
+        'I lead the frontend at ShedRx, building web experiences in healthcare tech with React, TypeScript, and Next.js, focused on performance, accessibility, and maintainable architecture.',
         'Before Shed, I spent years at Beyond, Inc. scaling trade and loyalty products, hardening government-facing apps for strict security requirements, and mentoring other engineers on the frontend.',
-        'I care about mobile-first delivery, Core Web Vitals, and testable UIs — ESLint, Jest, and RTL have been part of my daily toolkit for a long time.',
+        'I care about mobile-first delivery, Core Web Vitals, and testable UIs. ESLint, Jest, and RTL have been part of my daily toolkit for a long time.',
     ],
 };
 
@@ -74,7 +80,7 @@ export const experience: ExperienceItem[] = [
         location: 'Lehi, UT',
         highlights: [
             'Principal frontend for ShedRx: architecture, implementation, and quality for patient-facing web products.',
-            'Healthcare tech stack: React, TypeScript, Next.js — emphasis on reliability and UX in a regulated space.',
+            'Healthcare tech stack: React, TypeScript, Next.js, with emphasis on reliability and UX in a regulated space.',
         ],
     },
     {
@@ -204,6 +210,21 @@ export const skillGroups: SkillGroup[] = [
             'React Testing Library',
             'ESLint',
             'Prettier',
+        ],
+    },
+    {
+        title: 'AI',
+        skills: [
+            'Cursor',
+            'Antigravity',
+            'LM Studio',
+            'Claude',
+            'Gemini',
+            'GPT',
+            'Local distilled / GGUF models',
+            'MCP',
+            'Flux · flux.dev',
+            'Prompt & agent workflows',
         ],
     },
 ];

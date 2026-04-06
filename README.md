@@ -1,30 +1,26 @@
-# 🕹️ Decoding JSON: A JS Web Canvas 🎨
+# itzjonas.github.io
 
-This is a [Next.js](https://nextjs.org) project, a totally tubular web canvas for my front-end explorations, bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). Get ready to plug into the neon-soaked world of 80s-inspired web dev!
+Personal portfolio and blog: Next.js (App Router), static export to GitHub Pages. Synth-themed home page, MDX blog, and small arcade games.
 
-## 💾 Getting Started
-
-Fire up the development server and get ready to jam:
+## Develop
 
 ```bash
+yarn install
 yarn dev
-# or
-npm run dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Cruise on over to [http://localhost:3000](http://localhost:3000) with your browser to witness the magic! ✨
+## Build
 
-Start tweaking the digital landscape by modding `app/page.tsx`. The page auto-updates in real-time, like a high score popping up on your favorite arcade game! 👾
+```bash
+yarn build
+```
 
-This project harnesses the power of [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P), a pixelated font that's straight out of the 8-bit era. 🕹️
+Output is static (`output: 'export'` in `next.config.ts`); deploy the `out/` directory.
 
-## 🚧 Work in Progress! 🚧
+## Content
 
-Currently, this is a temporary landing page while the main site is under construction. Check back soon for more radical updates!
+- Copy and resume-shaped data: `lib/resume.ts`
+- Blog posts: `posts/*.mdx`
 
 ## 📝 TODO
 
@@ -42,14 +38,3 @@ Here's a sneak peek at what's coming soon to this totally tubular site:
     -   Provide a space for experimenting with code snippets and interactive components.
     -   Allow users to try out different technologies and techniques.
     -   Integrate code editors or sandboxes.
--   **Enhanced 80s Styling:** 🕶️
-    -   Incorporate more vibrant colors, gradients, and patterns.
-    -   Use retro fonts and pixel art graphics.
-    -   Add animated elements and transitions.
--   **Navigation Bar:** 🧭
-    -   Implement a stylish navigation bar for easy access to different sections.
-    -   Use hover effects and animations for interactivity.
-    -   Ensure the navigation is responsive for all screen sizes.
--   **Contact Section:** 📞
-    -   Include a contact form or links to social media profiles.
-    -   Make it easy for visitors to get in touch.

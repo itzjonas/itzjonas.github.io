@@ -1,7 +1,7 @@
 /**
  * Design tokens for the portfolio shell. Intended to be overwritten when Google Stitch
  * MCP (list_projects / get_project / list_design_systems) is used to pull designTheme
- * and DTCG tokens — Stitch was unavailable during implementation, so these match the
+ * and DTCG tokens. Stitch was unavailable during implementation, so these match the
  * plan’s sleek + synthwave direction (dark base, cyan/magenta accents, ROUND_EIGHT cards).
  */
 export const stitchThemeFallback = {

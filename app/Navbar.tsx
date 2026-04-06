@@ -10,6 +10,7 @@ const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
     const pathname = usePathname();
     const isHome = pathname === '/';
+    const contactHref = '/#contact';
 
     useEffect(() => {
         const handleResize = () => {
@@ -29,6 +30,7 @@ const Navbar = () => {
         { href: '/#skills', label: 'Skills' },
         { href: '/#experience', label: 'Experience' },
         { href: '/#education', label: 'Education' },
+        { href: '/#certifications', label: 'Certifications' },
         { href: '/#projects', label: 'Projects' },
         { href: '/#contact', label: 'Contact' },
     ];
@@ -49,17 +51,24 @@ const Navbar = () => {
         'text-80s-cyan hover:text-80s-pink transition-colors duration-200 drop-shadow-[0_0_4px_rgba(0,229,255,0.35)] py-1 text-sm lg:text-base whitespace-nowrap';
 
     return (
-        <nav className="w-full bg-80s-black/95 backdrop-blur-sm text-80s-white fixed top-0 left-0 z-50">
+        <nav className="w-full bg-black/95 backdrop-blur-sm text-80s-white fixed top-0 left-0 z-50 border-b border-white/5">
             <div className="w-full">
                 <AudioPlayer />
             </div>
 
-            <div className="w-full px-4 sm:px-8 py-3 border-b border-80s-magenta/60">
-                <div className="max-w-screen-xl mx-auto flex justify-between items-center gap-2">
+            <div className="w-full px-4 sm:px-8 py-3 border-b border-synth-secondary/30">
+                <div className="max-w-screen-xl mx-auto flex justify-between items-center gap-3">
+                    <Link
+                        className="font-orbitron text-sm sm:text-base font-bold tracking-[0.2em] text-white hover:text-synth-primary transition-colors shrink-0"
+                        href="/"
+                    >
+                        JS
+                    </Link>
+
                     <button
                         aria-expanded={isOpen}
                         aria-label="Toggle menu"
-                        className="md:hidden text-80s-cyan focus:outline-none shrink-0"
+                        className="md:hidden text-80s-cyan focus:outline-none shrink-0 ml-auto"
                         onClick={() => setIsOpen(!isOpen)}
                         type="button"
                     >
@@ -82,7 +91,7 @@ const Navbar = () => {
                         </svg>
                     </button>
 
-                    <div className="hidden md:flex flex-wrap items-center justify-end gap-x-4 lg:gap-x-6 gap-y-1">
+                    <div className="hidden md:flex flex-wrap items-center justify-end gap-x-3 lg:gap-x-5 gap-y-1 flex-1">
                         {desktopLinks.map((link) => (
                             <Link
                                 className={linkClass}
@@ -92,11 +101,14 @@ const Navbar = () => {
                                 {link.label}
                             </Link>
                         ))}
+                        <Link className="btn-gradient ml-2 text-center" href={contactHref}>
+                            Hire me
+                        </Link>
                     </div>
                 </div>
 
                 {isMobile && isOpen && (
-                    <div className="absolute top-full left-0 w-full bg-80s-black border-t border-80s-magenta md:hidden max-h-[70vh] overflow-y-auto">
+                    <div className="absolute top-full left-0 w-full bg-black border-t border-synth-secondary/30 md:hidden max-h-[70vh] overflow-y-auto">
                         <div className="flex flex-col p-4 space-y-3">
                             {mobileLinks.map((link) => (
                                 <Link
@@ -108,6 +120,13 @@ const Navbar = () => {
                                     {link.label}
                                 </Link>
                             ))}
+                            <Link
+                                className="btn-gradient text-center mt-2"
+                                href={contactHref}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Hire me
+                            </Link>
                         </div>
                     </div>
                 )}

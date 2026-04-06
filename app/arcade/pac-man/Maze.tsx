@@ -1,32 +1,29 @@
 'use client';
 
-const GRID_SIZE = 20;
-
 type MazeProps = {
-  maze: number[][];
+    cell: number;
+    maze: number[][];
 };
 
-export default function Maze({ maze }: MazeProps) {
-  return (
-    <>
-      {maze.map((row, y) =>
-        row.map((cell, x) => (
-          cell === 1 && (
-            <div
-              key={`${x}-${y}`}
-              style={{
-                background: '#00ffff',
-                border: '1px solid #ff00ff',
-                height: GRID_SIZE,
-                left: x * GRID_SIZE,
-                position: 'absolute',
-                top: y * GRID_SIZE,
-                width: GRID_SIZE,
-              }}
-            />
-          )
-        ))
-      )}
-    </>
-  );
+export default function Maze({ cell, maze }: MazeProps) {
+    return (
+        <>
+            {maze.map((row, y) =>
+                row.map((tile, x) =>
+                    tile === 1 ? (
+                        <div
+                            className="absolute border border-cyan-500/25 bg-gradient-to-br from-synth-bg-mid to-black shadow-[inset_0_0_12px_rgba(0,229,255,0.08)]"
+                            key={`${x}-${y}`}
+                            style={{
+                                height: cell,
+                                left: x * cell,
+                                top: y * cell,
+                                width: cell,
+                            }}
+                        />
+                    ) : null,
+                ),
+            )}
+        </>
+    );
 }

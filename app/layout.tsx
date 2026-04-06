@@ -1,4 +1,4 @@
-import { DM_Sans, Orbitron, Press_Start_2P } from 'next/font/google';
+import { DM_Sans, JetBrains_Mono, Orbitron, Press_Start_2P } from 'next/font/google';
 import Footer from './Footer';
 import KonamiWrapper from '@/components/KonamiWrapper';
 import NavBar from '@/app/Navbar';
@@ -28,9 +28,15 @@ const orbitron = Orbitron({
     weight: ['500', '600', '700', '800'],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ['latin'],
+    variable: '--font-jetbrains-mono',
+    weight: ['400', '500', '600', '700'],
+});
+
 export const metadata: Metadata = {
     description:
-        'Jason Seegmiller — Principal Front End Developer at Shed. React, TypeScript, Next.js, and frontend architecture across healthcare and retail.',
+        'Jason Seegmiller, Principal Front End Developer at Shed. React, TypeScript, Next.js, and frontend architecture across healthcare and retail.',
     title: 'Jason Seegmiller | Principal Front End Developer',
 };
 
@@ -64,15 +70,15 @@ export default function RootLayout({
         },
     ];
 
-    const fontVariables = `${pressStart2P.variable} ${dmSans.variable} ${orbitron.variable}`;
+    const fontVariables = `${pressStart2P.variable} ${dmSans.variable} ${orbitron.variable} ${jetbrainsMono.variable}`;
 
     return (
-        <html lang="en">
-            <body className={`${fontVariables} antialiased bg-black`}>
+        <html lang="en" suppressHydrationWarning>
+            <body className={`${fontVariables} antialiased bg-black`} suppressHydrationWarning>
                 <KonamiWrapper initialSongs={initialSongs}>
                     <NavBar />
                     <div className="grid">
-                        <main className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <main className="w-full max-w-none mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
                             {children}
                         </main>
                     </div>
