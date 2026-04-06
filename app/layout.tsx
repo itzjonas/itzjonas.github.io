@@ -1,4 +1,4 @@
-import { Press_Start_2P } from 'next/font/google';
+import { DM_Sans, Orbitron, Press_Start_2P } from 'next/font/google';
 import Footer from './Footer';
 import KonamiWrapper from '@/components/KonamiWrapper';
 import NavBar from '@/app/Navbar';
@@ -16,10 +16,22 @@ const pressStart2P = Press_Start_2P({
     weight: '400',
 });
 
+const dmSans = DM_Sans({
+    subsets: ['latin'],
+    variable: '--font-dm-sans',
+    weight: ['400', '500', '600', '700'],
+});
+
+const orbitron = Orbitron({
+    subsets: ['latin'],
+    variable: '--font-orbitron',
+    weight: ['500', '600', '700', '800'],
+});
+
 export const metadata: Metadata = {
     description:
-        'My digital domain is undergoing a radical transformation! I\'m channeling the power of the 80s to create a portfolio that\'s as vibrant and exciting as a synthwave soundtrack. Stay tuned for updates, and prepare to be amazed!',
-    title: 'Decoding JS',
+        'Jason Seegmiller — Principal Front End Developer at Shed. React, TypeScript, Next.js, and frontend architecture across healthcare and retail.',
+    title: 'Jason Seegmiller | Principal Front End Developer',
 };
 
 export default function RootLayout({
@@ -52,13 +64,15 @@ export default function RootLayout({
         },
     ];
 
+    const fontVariables = `${pressStart2P.variable} ${dmSans.variable} ${orbitron.variable}`;
+
     return (
         <html lang="en">
-            <body className={`${pressStart2P.variable} antialiased bg-black`}>
+            <body className={`${fontVariables} antialiased bg-black`}>
                 <KonamiWrapper initialSongs={initialSongs}>
                     <NavBar />
                     <div className="grid">
-                        <main className="pt-30 max-w-[960px] w-full mx-auto">
+                        <main className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                             {children}
                         </main>
                     </div>
