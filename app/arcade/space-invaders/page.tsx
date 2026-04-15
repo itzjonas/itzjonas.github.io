@@ -1,41 +1,41 @@
 'use client';
 
-import Link from 'next/link';
 import { ArrowLeft, Maximize2, Minimize2 } from 'lucide-react';
+import Link from 'next/link';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { SynthPageShell } from '@/components/SynthPageShell';
 
 const C = {
-    trail: 'rgba(5, 5, 12, 0.45)',
+    bulletInvader: '#ff9f1c',
+    bulletPlayer: '#00e5ff',
     grid: 'rgba(0, 229, 255, 0.055)',
     gridBright: 'rgba(255, 42, 140, 0.04)',
+    invader: '#ff2a8c',
+    invaderAlt: '#7c3aed',
+    invaderGlow: 'rgba(255, 42, 140, 0.45)',
     player: '#00e5ff',
     playerGlow: 'rgba(0, 229, 255, 0.55)',
-    invader: '#ff2a8c',
-    invaderGlow: 'rgba(255, 42, 140, 0.45)',
-    invaderAlt: '#7c3aed',
-    bulletPlayer: '#00e5ff',
-    bulletInvader: '#ff9f1c',
     star: 'rgba(240, 238, 245, 0.5)',
     starCyan: 'rgba(0, 229, 255, 0.4)',
-    textWin: '#00e5ff',
     textLose: '#ff2a8c',
+    textWin: '#00e5ff',
+    trail: 'rgba(5, 5, 12, 0.45)',
 };
 
-type Star = { x: number; y: number; r: number; a: number; kind: 'w' | 'c' };
+type Star = { a: number; kind: 'c' | 'w'; r: number; x: number; y: number; };
 
 function getFullscreenElement(): Element | null {
-    const doc = document as Document & { webkitFullscreenElement?: Element | null };
+    const doc = document as { webkitFullscreenElement?: Element | null } & Document;
     return document.fullscreenElement ?? doc.webkitFullscreenElement ?? null;
 }
 
 async function requestFullscreen(el: HTMLElement): Promise<void> {
-    const anyEl = el as HTMLElement & {
-        webkitRequestFullscreen?: () => void;
+    const anyEl = el as {
         mozRequestFullScreen?: () => void;
         msRequestFullscreen?: () => void;
-    };
+        webkitRequestFullscreen?: () => void;
+    } & HTMLElement;
     if (el.requestFullscreen) {
         await el.requestFullscreen();
     } else if (anyEl.webkitRequestFullscreen) {
@@ -48,11 +48,11 @@ async function requestFullscreen(el: HTMLElement): Promise<void> {
 }
 
 async function exitFullscreen(): Promise<void> {
-    const doc = document as Document & {
-        webkitExitFullscreen?: () => void;
+    const doc = document as {
         mozCancelFullScreen?: () => void;
         msExitFullscreen?: () => void;
-    };
+        webkitExitFullscreen?: () => void;
+    } & Document;
     if (document.exitFullscreen) {
         await document.exitFullscreen();
     } else if (doc.webkitExitFullscreen) {
@@ -64,34 +64,34 @@ async function exitFullscreen(): Promise<void> {
     }
 }
 
-type Invader = { x: number; y: number; width: number; height: number; tier: 0 | 1 | 2 };
+type Invader = { height: number; tier: 0 | 1 | 2; width: number; x: number; y: number; };
 
 function SpaceInvadersCanvas({
-    score,
+    gameStatus,
     highScore,
     level,
-    gameStatus,
-    setScore,
+    score,
+    setGameStatus,
     setHighScore,
     setLevel,
-    setGameStatus,
+    setScore,
 }: {
-    score: number;
+    gameStatus: 'defeat' | 'playing' | 'victory';
     highScore: number;
     level: number;
-    gameStatus: 'playing' | 'victory' | 'defeat';
-    setScore: React.Dispatch<React.SetStateAction<number>>;
+    score: number;
+    setGameStatus: React.Dispatch<React.SetStateAction<'defeat' | 'playing' | 'victory'>>;
     setHighScore: React.Dispatch<React.SetStateAction<number>>;
     setLevel: React.Dispatch<React.SetStateAction<number>>;
-    setGameStatus: React.Dispatch<React.SetStateAction<'playing' | 'victory' | 'defeat'>>;
+    setScore: React.Dispatch<React.SetStateAction<number>>;
 }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const starsRef = useRef<Star[]>([]);
 
-    const statusRef = useRef<'playing' | 'victory' | 'defeat'>('playing');
+    const statusRef = useRef<'defeat' | 'playing' | 'victory'>('playing');
     const levelRef = useRef(1);
-    const rafRef = useRef<number | null>(null);
+    const rafRef = useRef<null | number>(null);
 
     useEffect(() => {
         statusRef.current = gameStatus;
@@ -114,25 +114,25 @@ function SpaceInvadersCanvas({
         let invaderDirection = 1;
 
         const player = {
-            x: 0,
-            y: 0,
-            width: 34,
             height: 14,
             velocityX: 6,
+            width: 34,
+            x: 0,
+            y: 0,
         };
 
         let invaders: Invader[] = [];
-        const playerBullets: { x: number; y: number; radius: number; velocityY: number }[] = [];
-        const invaderBullets: { x: number; y: number; radius: number; velocityY: number }[] = [];
+        const playerBullets: { radius: number; velocityY: number; x: number; y: number; }[] = [];
+        const invaderBullets: { radius: number; velocityY: number; x: number; y: number; }[] = [];
 
         const initStars = (w: number, h: number) => {
             const n = Math.min(120, Math.floor((w * h) / 14000));
             starsRef.current = Array.from({ length: n }, () => ({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                r: Math.random() * 1 + 0.25,
                 a: Math.random() * 0.45 + 0.2,
                 kind: Math.random() > 0.75 ? 'c' : 'w',
+                r: Math.random() * 1 + 0.25,
+                x: Math.random() * w,
+                y: Math.random() * h,
             }));
         };
 
@@ -151,11 +151,11 @@ function SpaceInvadersCanvas({
                 for (let col = 0; col < cols; col++) {
                     const tier = (row < 2 ? 2 : row < 4 ? 1 : 0) as 0 | 1 | 2;
                     invaders.push({
-                        x: startX + col * (invaderWidth + spacingX),
-                        y: 56 + row * (invaderHeight + spacingY),
-                        width: invaderWidth,
                         height: invaderHeight,
                         tier,
+                        width: invaderWidth,
+                        x: startX + col * (invaderWidth + spacingX),
+                        y: 56 + row * (invaderHeight + spacingY),
                     });
                 }
             }
@@ -163,7 +163,7 @@ function SpaceInvadersCanvas({
         };
 
         const resizeCanvas = () => {
-            const { width, height } = container.getBoundingClientRect();
+            const { height, width } = container.getBoundingClientRect();
             const w = Math.max(320, width);
             const h = Math.max(280, height);
             canvas.width = w;
@@ -239,7 +239,7 @@ function SpaceInvadersCanvas({
         };
 
         const drawInvader = (inv: Invader) => {
-            const { x, y, width, height, tier } = inv;
+            const { height, tier, width, x, y } = inv;
             const fill = tier === 2 ? C.invader : tier === 1 ? C.invaderAlt : C.invader;
             ctx.shadowBlur = tier >= 1 ? 8 : 5;
             ctx.shadowColor = C.invaderGlow;
@@ -329,10 +329,10 @@ function SpaceInvadersCanvas({
                 const now = Date.now();
                 if (keys[32] && now - lastBulletTime > 280) {
                     playerBullets.push({
-                        x: player.x + player.width / 2,
-                        y: player.y,
                         radius: 3,
                         velocityY: -7,
+                        x: player.x + player.width / 2,
+                        y: player.y,
                     });
                     lastBulletTime = now;
                 }
@@ -366,10 +366,10 @@ function SpaceInvadersCanvas({
                         const shooter = invaders[Math.floor(Math.random() * invaders.length)];
                         if (shooter) {
                             invaderBullets.push({
-                                x: shooter.x + shooter.width / 2,
-                                y: shooter.y + shooter.height,
                                 radius: 3,
                                 velocityY: 3.2 + levelRef.current * 0.45,
+                                x: shooter.x + shooter.width / 2,
+                                y: shooter.y + shooter.height,
                             });
                         }
                     }
@@ -511,7 +511,7 @@ export default function SpaceInvadersPage() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [level, setLevel] = useState(1);
-    const [gameStatus, setGameStatus] = useState<'playing' | 'victory' | 'defeat'>('playing');
+    const [gameStatus, setGameStatus] = useState<'defeat' | 'playing' | 'victory'>('playing');
 
     useEffect(() => {
         try {

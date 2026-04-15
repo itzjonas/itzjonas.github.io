@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useAudio } from '@/providers/AudioProvider';
 import { Pause, Play, SkipBack, SkipForward } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+import { useAudio } from '@/providers/AudioProvider';
 
 const iconClass = 'text-white/90';
 
@@ -12,6 +13,8 @@ const AudioPlayer = () => {
     const { currentSong, isPlaying, next, pause, play, prev } = useAudio();
 
     useEffect(() => {
+        // After hydration, first paint matches SSR; then reveal client-only UI (extensions can mutate SVG).
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- mount gate; useSyncExternalStore would mismatch hydration
         setMounted(true);
     }, []);
 

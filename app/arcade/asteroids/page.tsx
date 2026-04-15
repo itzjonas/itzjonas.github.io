@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { ArrowLeft, Maximize2, Minimize2 } from 'lucide-react';
+import Link from 'next/link';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { SynthPageShell } from '@/components/SynthPageShell';
@@ -9,32 +9,32 @@ import { SynthPageShell } from '@/components/SynthPageShell';
 /** Canvas palette aligned with globals.css synth tokens */
 const C = {
     bg: '#000000',
-    trail: 'rgba(5, 5, 12, 0.32)',
-    grid: 'rgba(0, 229, 255, 0.055)',
-    gridBright: 'rgba(255, 42, 140, 0.04)',
-    ship: '#00e5ff',
-    shipGlow: 'rgba(0, 229, 255, 0.65)',
-    thrustCore: '#ff2a8c',
-    thrustEdge: '#ff9f1c',
-    rock: '#e8e4ef',
-    rockAlt: 'rgba(255, 42, 140, 0.92)',
     bullet: '#00e5ff',
     bulletGlow: 'rgba(0, 229, 255, 0.9)',
+    grid: 'rgba(0, 229, 255, 0.055)',
+    gridBright: 'rgba(255, 42, 140, 0.04)',
+    rock: '#e8e4ef',
+    rockAlt: 'rgba(255, 42, 140, 0.92)',
+    ship: '#00e5ff',
+    shipGlow: 'rgba(0, 229, 255, 0.65)',
     star: 'rgba(240, 238, 245, 0.55)',
     starCyan: 'rgba(0, 229, 255, 0.45)',
+    thrustCore: '#ff2a8c',
+    thrustEdge: '#ff9f1c',
+    trail: 'rgba(5, 5, 12, 0.32)',
 };
 
 function getFullscreenElement(): Element | null {
-    const doc = document as Document & { webkitFullscreenElement?: Element | null };
+    const doc = document as { webkitFullscreenElement?: Element | null } & Document;
     return document.fullscreenElement ?? doc.webkitFullscreenElement ?? null;
 }
 
 async function requestFullscreen(el: HTMLElement): Promise<void> {
-    const anyEl = el as HTMLElement & {
-        webkitRequestFullscreen?: () => void;
+    const anyEl = el as {
         mozRequestFullScreen?: () => void;
         msRequestFullscreen?: () => void;
-    };
+        webkitRequestFullscreen?: () => void;
+    } & HTMLElement;
     if (el.requestFullscreen) {
         await el.requestFullscreen();
     } else if (anyEl.webkitRequestFullscreen) {
@@ -47,11 +47,11 @@ async function requestFullscreen(el: HTMLElement): Promise<void> {
 }
 
 async function exitFullscreen(): Promise<void> {
-    const doc = document as Document & {
-        webkitExitFullscreen?: () => void;
+    const doc = document as {
         mozCancelFullScreen?: () => void;
         msExitFullscreen?: () => void;
-    };
+        webkitExitFullscreen?: () => void;
+    } & Document;
     if (document.exitFullscreen) {
         await document.exitFullscreen();
     } else if (doc.webkitExitFullscreen) {
@@ -63,7 +63,7 @@ async function exitFullscreen(): Promise<void> {
     }
 }
 
-type Star = { x: number; y: number; r: number; a: number; kind: 'w' | 'c' };
+type Star = { a: number; kind: 'c' | 'w'; r: number; x: number; y: number; };
 
 function AsteroidsCanvas() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -73,34 +73,34 @@ function AsteroidsCanvas() {
     const starsRef = useRef<Star[]>([]);
 
     const gameRef = useRef({
-        ship: null as {
-            x: number;
-            y: number;
-            radius: number;
-            angle: number;
-            thrust: { x: number; y: number };
-            friction: number;
-        } | null,
+        animationFrameId: 0 as null | number,
         asteroids: [] as {
-            x: number;
-            y: number;
+            hue: 'alt' | 'rock';
             radius: number;
             velocityX: number;
             velocityY: number;
             vertices: { x: number; y: number }[];
-            hue: 'rock' | 'alt';
-        }[],
-        bullets: [] as {
             x: number;
             y: number;
+        }[],
+        bullets: [] as {
+            lifeTime: number;
+            radius: number;
             velocityX: number;
             velocityY: number;
-            radius: number;
-            lifeTime: number;
+            x: number;
+            y: number;
         }[],
         keys: {} as Record<number, boolean>,
-        animationFrameId: 0 as number | null,
         lastTime: 0,
+        ship: null as {
+            angle: number;
+            friction: number;
+            radius: number;
+            thrust: { x: number; y: number };
+            x: number;
+            y: number;
+        } | null,
     });
 
     useEffect(() => {
@@ -128,16 +128,16 @@ function AsteroidsCanvas() {
         const initStars = (w: number, h: number) => {
             const n = Math.min(140, Math.floor((w * h) / 12000));
             starsRef.current = Array.from({ length: n }, () => ({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                r: Math.random() * 1.1 + 0.25,
                 a: Math.random() * 0.45 + 0.25,
                 kind: Math.random() > 0.72 ? 'c' : 'w',
+                r: Math.random() * 1.1 + 0.25,
+                x: Math.random() * w,
+                y: Math.random() * h,
             }));
         };
 
         const resizeCanvas = () => {
-            const { width, height } = container.getBoundingClientRect();
+            const { height, width } = container.getBoundingClientRect();
             canvas.width = width;
             canvas.height = height;
             initStars(width, height);
@@ -151,12 +151,12 @@ function AsteroidsCanvas() {
         resizeCanvas();
 
         game.ship = {
+            angle: 0,
+            friction: 0.98,
+            radius: 15,
+            thrust: { x: 0, y: 0 },
             x: canvas.width / 2,
             y: canvas.height / 2,
-            radius: 15,
-            angle: 0,
-            thrust: { x: 0, y: 0 },
-            friction: 0.98,
         };
 
         const generateAsteroidVertices = (radius: number) => {
@@ -178,13 +178,13 @@ function AsteroidsCanvas() {
         const createAsteroid = (x?: number, y?: number, radius?: number) => {
             const r = radius || Math.random() * 30 + 20;
             return {
-                x: x ?? Math.random() * canvas.width,
-                y: y ?? Math.random() * canvas.height,
+                hue: (Math.random() > 0.5 ? 'rock' : 'alt') as 'alt' | 'rock',
                 radius: r,
                 velocityX: (Math.random() - 0.5) * 2,
                 velocityY: (Math.random() - 0.5) * 2,
                 vertices: generateAsteroidVertices(r),
-                hue: (Math.random() > 0.5 ? 'rock' : 'alt') as 'rock' | 'alt',
+                x: x ?? Math.random() * canvas.width,
+                y: y ?? Math.random() * canvas.height,
             };
         };
 
@@ -192,12 +192,12 @@ function AsteroidsCanvas() {
             if (!game.ship) return;
             if (game.bullets.length < 10) {
                 const bullet = {
-                    x: game.ship.x + Math.cos(game.ship.angle) * game.ship.radius,
-                    y: game.ship.y + Math.sin(game.ship.angle) * game.ship.radius,
+                    lifeTime: 60,
+                    radius: 3,
                     velocityX: Math.cos(game.ship.angle) * 7,
                     velocityY: Math.sin(game.ship.angle) * 7,
-                    radius: 3,
-                    lifeTime: 60,
+                    x: game.ship.x + Math.cos(game.ship.angle) * game.ship.radius,
+                    y: game.ship.y + Math.sin(game.ship.angle) * game.ship.radius,
                 };
                 game.bullets.push(bullet);
             }

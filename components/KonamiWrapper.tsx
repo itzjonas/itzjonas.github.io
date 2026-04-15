@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import type { Song } from '@/types/song';
+
 import { AudioProvider } from '@/providers/AudioProvider';
 
 interface KonamiWrapperProps {

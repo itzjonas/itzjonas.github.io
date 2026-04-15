@@ -1,13 +1,13 @@
 type SectionTitleProps = {
-    /** e.g. 1 → // 01. */
-    sectionNumber: number;
-    /** Uppercase label after the dot */
-    label: string;
     as?: 'h2' | 'h3';
     className?: string;
+    /** Uppercase label after the dot */
+    label: string;
+    /** e.g. 1 → // 01. */
+    sectionNumber: number;
 };
 
-export function SectionTitle({ sectionNumber, label, as: Tag = 'h2', className = '' }: SectionTitleProps) {
+export function SectionTitle({ as: Tag = 'h2', className = '', label, sectionNumber }: SectionTitleProps) {
     const num = String(sectionNumber).padStart(2, '0');
 
     return (

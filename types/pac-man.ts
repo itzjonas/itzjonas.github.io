@@ -3,10 +3,10 @@ export type Position = {
     y: number;
 };
 
-export type Direction = 'up' | 'down' | 'left' | 'right';
+export type Direction = 'down' | 'left' | 'right' | 'up';
 
 export type Ghost = {
+    dir: Direction;
     id: number;
     pos: Position;
-    dir: Direction;
 };

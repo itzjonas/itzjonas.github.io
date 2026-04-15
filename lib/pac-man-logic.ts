@@ -6,7 +6,7 @@ export function cellKey(x: number, y: number) {
     return `${x},${y}`;
 }
 
-export function nextPosition(pos: Position, dir: Direction, maze: number[][]): Position | null {
+export function nextPosition(pos: Position, dir: Direction, maze: number[][]): null | Position {
     const H = maze.length;
     const W = maze[0].length;
     const TY = TUNNEL_ROW;
@@ -33,17 +33,17 @@ export function nextPosition(pos: Position, dir: Direction, maze: number[][]): P
 }
 
 const OPP: Record<Direction, Direction> = {
-    up: 'down',
     down: 'up',
     left: 'right',
     right: 'left',
+    up: 'down',
 };
 
 const DIR_RANK: Record<Direction, number> = {
-    up: 0,
+    down: 3,
     left: 1,
     right: 2,
-    down: 3,
+    up: 0,
 };
 
 export function manhattan(a: Position, b: Position) {
@@ -78,7 +78,7 @@ export function stepGhost(g: Ghost, target: Position, maze: number[][]): Ghost {
     if (choices.length === 0) {
         const rev = OPP[g.dir];
         const np = nextPosition(g.pos, rev, maze);
-        if (np) return { ...g, pos: np, dir: rev };
+        if (np) return { ...g, dir: rev, pos: np };
         return g;
     }
 
@@ -92,7 +92,7 @@ export function stepGhost(g: Ghost, target: Position, maze: number[][]): Ghost {
     });
 
     const pick = choices[0];
-    return { ...g, pos: nextPosition(g.pos, pick, maze)!, dir: pick };
+    return { ...g, dir: pick, pos: nextPosition(g.pos, pick, maze)! };
 }
 
 const NO_DOT_KEYS = new Set(['14,23', '13,14', '14,14', '15,14', '16,14']);
@@ -112,23 +112,23 @@ export function buildInitialDots(maze: number[][]) {
 
 export function initialGhosts(): Ghost[] {
     return [
-        { id: 0, pos: { x: 13, y: 14 }, dir: 'left' },
-        { id: 1, pos: { x: 14, y: 14 }, dir: 'up' },
-        { id: 2, pos: { x: 15, y: 14 }, dir: 'up' },
-        { id: 3, pos: { x: 16, y: 14 }, dir: 'right' },
+        { dir: 'left', id: 0, pos: { x: 13, y: 14 } },
+        { dir: 'up', id: 1, pos: { x: 14, y: 14 } },
+        { dir: 'up', id: 2, pos: { x: 15, y: 14 } },
+        { dir: 'right', id: 3, pos: { x: 16, y: 14 } },
     ];
 }
 
 export function createInitialState() {
     return {
-        pac: { x: 14, y: 23 } as Position,
-        pacDir: 'right' as Direction,
+        dots: buildInitialDots(PAC_MAZE),
         ghosts: initialGhosts(),
         highScore: 0,
+        pac: { x: 14, y: 23 } as Position,
+        pacDir: 'right' as Direction,
         queued: 'right' as Direction,
-        dots: buildInitialDots(PAC_MAZE),
         score: 0,
+        status: 'playing' as 'lost' | 'playing' | 'won',
         tickCount: 0,
-        status: 'playing' as 'playing' | 'won' | 'lost',
     };
 }

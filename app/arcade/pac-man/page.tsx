@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { ArrowLeft, Maximize2, Minimize2 } from 'lucide-react';
+import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { SynthPageShell } from '@/components/SynthPageShell';
@@ -9,16 +9,16 @@ import { SynthPageShell } from '@/components/SynthPageShell';
 import Game from './Game';
 
 function getFullscreenElement(): Element | null {
-    const doc = document as Document & { webkitFullscreenElement?: Element | null };
+    const doc = document as { webkitFullscreenElement?: Element | null } & Document;
     return document.fullscreenElement ?? doc.webkitFullscreenElement ?? null;
 }
 
 async function requestFullscreen(el: HTMLElement): Promise<void> {
-    const anyEl = el as HTMLElement & {
-        webkitRequestFullscreen?: () => void;
+    const anyEl = el as {
         mozRequestFullScreen?: () => void;
         msRequestFullscreen?: () => void;
-    };
+        webkitRequestFullscreen?: () => void;
+    } & HTMLElement;
     if (el.requestFullscreen) {
         await el.requestFullscreen();
     } else if (anyEl.webkitRequestFullscreen) {
@@ -31,11 +31,11 @@ async function requestFullscreen(el: HTMLElement): Promise<void> {
 }
 
 async function exitFullscreen(): Promise<void> {
-    const doc = document as Document & {
-        webkitExitFullscreen?: () => void;
+    const doc = document as {
         mozCancelFullScreen?: () => void;
         msExitFullscreen?: () => void;
-    };
+        webkitExitFullscreen?: () => void;
+    } & Document;
     if (document.exitFullscreen) {
         await document.exitFullscreen();
     } else if (doc.webkitExitFullscreen) {

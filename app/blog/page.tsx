@@ -1,9 +1,9 @@
 import { format } from 'date-fns';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
-import { SynthPageShell } from '@/components/SynthPageShell';
 import { SectionTitle } from '@/components/portfolio/SectionTitle';
+import { SynthPageShell } from '@/components/SynthPageShell';
 import { getSortedPostsData } from '@/lib/posts';
 
 export default function BlogPage() {
@@ -19,7 +19,7 @@ export default function BlogPage() {
             </header>
 
             <div className="flex flex-col gap-6 md:gap-8">
-                {allPosts.map(({ slug, date, title, excerpt }) => (
+                {allPosts.map(({ date, excerpt, slug, title }) => (
                     <article className="portfolio-card p-5 md:p-6" key={slug}>
                         <Link className="group block" href={`/blog/${slug}`}>
                             <time

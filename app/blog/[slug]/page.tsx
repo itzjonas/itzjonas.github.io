@@ -1,11 +1,11 @@
 import { format } from 'date-fns';
-import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 import { SynthPageShell } from '@/components/SynthPageShell';
 import { getAllPostSlugs, getPostData } from '@/lib/posts';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 type BlogPostPageProps = { params: Promise<{ slug: string }> };
 
@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     try {
         const postData = await getPostData(slug);
         return {
-            title: postData.title,
             description: postData.excerpt || '',
+            title: postData.title,
         };
     } catch (error) {
         console.error('Error generating metadata:', error);

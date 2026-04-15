@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useRef, useState, useEffect } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 // TYPES
 import type { Song } from '@/types/song';
@@ -8,9 +8,9 @@ interface AudioContextProps {
   audioRef: React.RefObject<HTMLAudioElement | null>;
   currentSong: Song;
   isPlaying: boolean;
-  play: () => void;
-  pause: () => void;
   next: () => void;
+  pause: () => void;
+  play: () => void;
   prev: () => void;
 }
 
@@ -24,7 +24,7 @@ export const useAudio = () => {
   return context;
 };
 
-export const AudioProvider = ({ songs, children }: { songs: Song[]; children: React.ReactNode }) => {
+export const AudioProvider = ({ children, songs }: { children: React.ReactNode; songs: Song[]; }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null); // Keep null here
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -45,8 +45,8 @@ export const AudioProvider = ({ songs, children }: { songs: Song[]; children: Re
     if (!('mediaSession' in navigator)) return;
 
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: currentSong.displayName,
       artist: 'Unknown Artist',
+      title: currentSong.displayName,
     });
 
     navigator.mediaSession.setActionHandler('play', () => setIsPlaying(true));
@@ -63,7 +63,7 @@ export const AudioProvider = ({ songs, children }: { songs: Song[]; children: Re
 
   return (
     <AudioContext.Provider
-      value={{ audioRef, currentSong, isPlaying, play, pause, next, prev }}
+      value={{ audioRef, currentSong, isPlaying, next, pause, play, prev }}
     >
       {children}
       <audio

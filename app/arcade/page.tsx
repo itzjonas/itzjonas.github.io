@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
-import { SynthPageShell } from '@/components/SynthPageShell';
 import { SectionTitle } from '@/components/portfolio/SectionTitle';
+import { SynthPageShell } from '@/components/SynthPageShell';
 
 export default function ArcadePage() {
     const games = [

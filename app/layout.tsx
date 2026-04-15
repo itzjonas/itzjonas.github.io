@@ -1,14 +1,18 @@
+// TYPES
+import type { Metadata } from 'next';
+
 import { DM_Sans, JetBrains_Mono, Orbitron, Press_Start_2P } from 'next/font/google';
-import Footer from './Footer';
-import KonamiWrapper from '@/components/KonamiWrapper';
+
+import type { Song } from '@/types/song';
+
 import NavBar from '@/app/Navbar';
 
 // STYLES
 import './globals.css';
 
-// TYPES
-import type { Metadata } from 'next';
-import type { Song } from '@/types/song';
+import KonamiWrapper from '@/components/KonamiWrapper';
+
+import Footer from './Footer';
 
 const pressStart2P = Press_Start_2P({
     subsets: ['latin'],

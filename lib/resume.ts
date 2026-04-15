@@ -1,94 +1,92 @@
 export type Profile = {
-    name: string;
-    title: string;
-    company: string;
-    location: string;
-    tagline: string;
-    /** Hero line 1: plain white display */
-    heroLine1: string;
-    /** Hero line 2: gradient display */
-    heroLine2: string;
     about: string[];
+    company: string;
+    heroLine1: string;
+    heroLine2: string;
+    location: string;
+    name: string;
+    tagline: string;
+    title: string;
 };
 
 export type ExperienceItem = {
-    id: string;
-    role: string;
     company: string;
-    range: string;
-    location?: string;
     highlights: string[];
+    id: string;
+    location?: string;
+    range: string;
+    role: string;
 };
 
 export type EducationItem = {
     degree: string;
-    school: string;
-    range: string;
     location?: string;
+    range: string;
+    school: string;
 };
 
 export type Certification = {
-    name: string;
-    issuer: string;
     issued: string;
+    issuer: string;
+    name: string;
 };
 
 export type SkillGroup = {
-    title: string;
     skills: string[];
+    title: string;
 };
 
 export type ProjectItem = {
-    id: string;
-    title: string;
     description: string;
     href: string;
-    imageSrc: string;
+    id: string;
     imageAlt: string;
+    imageSrc: string;
+    title: string;
 };
 
 export type Contact = {
     email: string;
-    linkedinLabel: string;
-    linkedinHref: string;
-    githubLabel: string;
     githubHref: string;
+    githubLabel: string;
+    linkedinHref: string;
+    linkedinLabel: string;
 };
 
 export const profile: Profile = {
-    name: 'Jason Seegmiller',
-    title: 'Principal Front End Developer',
-    company: 'Shed',
-    location: 'Saratoga Springs, UT',
-    tagline:
-        'Frontend architecture, React, and shipping polished UX from healthcare to high-traffic retail.',
-    heroLine1: 'Jason',
-    heroLine2: 'Seegmiller',
     about: [
         'I lead the frontend at ShedRx, building web experiences in healthcare tech with React, TypeScript, and Next.js, focused on performance, accessibility, and maintainable architecture.',
         'Before Shed, I spent years at Beyond, Inc. scaling trade and loyalty products, hardening government-facing apps for strict security requirements, and mentoring other engineers on the frontend.',
         'I care about mobile-first delivery, Core Web Vitals, and testable UIs. ESLint, Jest, and RTL have been part of my daily toolkit for a long time.',
     ],
+    company: 'Shed',
+    heroLine1: 'Jason',
+    heroLine2: 'Seegmiller',
+    location: 'Saratoga Springs, UT',
+    name: 'Jason Seegmiller',
+    tagline:
+        'Frontend architecture, React, and shipping polished UX from healthcare to high-traffic retail.',
+    title: 'Principal Front End Developer',
 };
 
 export const experience: ExperienceItem[] = [
     {
-        id: 'shed',
-        role: 'Principal Front End Developer',
         company: 'Shed (ShedRx)',
-        range: 'Mar 2025 – Present',
-        location: 'Lehi, UT',
         highlights: [
-            'Principal frontend for ShedRx: architecture, implementation, and quality for patient-facing web products.',
-            'Healthcare tech stack: React, TypeScript, Next.js, with emphasis on reliability and UX in a regulated space.',
+            'Migrated patient Portal from Vite to Next.js incrementally; checkout, signup, scheduling, and support without blocking delivery.',
+            'Upgraded provider app (Shedweb) to Next.js 15 with Turbopack, Node, and CI.',
+            'Integrated Whereby for HIPAA telehealth visits in the provider app, replacing Zoom.',
+            'Updated Checkout: automated tax, unified purchasing; Put Me In Coach (coaching in checkout).',
+            'Orders experience: payments, shipments, refills, and next steps; architecture docs for Checkout and Orders.',
+            'CVE patches, reduced sensitive config exposure, runtime upgrades; stabilized payments, scheduling, and subscriptions.',
         ],
+        id: 'shed',
+        location: 'South Jordan, UT',
+        range: 'Mar 2025 - Present',
+        role: 'Principal Front End Developer',
     },
     {
-        id: 'beyond-staff',
-        role: 'Staff Frontend Developer',
         company: 'Beyond, Inc.',
-        range: 'Oct 2024 – Mar 2025',
-        location: 'Midvale, UT',
         highlights: [
             'Scaled an MVP with cross-functional teams; DevOps with Git, Bitbucket, Docker, Kubernetes, Jenkins.',
             'Next.js, TypeScript, React, Material UI; Jest and React Testing Library for complex search and UI flows.',
@@ -97,91 +95,94 @@ export const experience: ExperienceItem[] = [
             'Beyond+ loyalty relaunch with new APIs; coordination with Ireland-based team.',
             'Led frontend on an international-trade initiative with external vendors (feature-flagged for release).',
         ],
+        id: 'beyond-staff',
+        location: 'Midvale, UT',
+        range: 'Oct 2024 - Mar 2025',
+        role: 'Staff Frontend Developer',
     },
     {
-        id: 'beyond-senior',
-        role: 'Senior Frontend Developer',
         company: 'Beyond, Inc.',
-        range: 'Jun 2018 – Oct 2024',
-        location: 'Midvale, UT',
         highlights: [
             'Migrated OverstockGovernment.com from CRA/JSX to Next.js and TypeScript for scalability, performance, and state/federal security requirements.',
             'Isomorphic React with Node for SEO and faster TTI; Webpack, React, Storybook; Jest and linting discipline.',
             'REST messaging service delivering HTML fragments with inline styling for downstream renderers.',
         ],
+        id: 'beyond-senior',
+        location: 'Midvale, UT',
+        range: 'Jun 2018 - Oct 2024',
+        role: 'Senior Frontend Developer',
     },
     {
-        id: 'beyond-fe',
-        role: 'Frontend Developer',
         company: 'Beyond, Inc.',
-        range: 'Aug 2013 – May 2018',
-        location: 'Midvale, UT',
         highlights: [
             'Photoshop/Zeplin to production UIs for web and internal apps; SEO, style guide conformance, and page-weight optimization.',
             'Liaison between creative, NOC, and IT; documentation and cross-team delivery.',
         ],
+        id: 'beyond-fe',
+        location: 'Midvale, UT',
+        range: 'Aug 2013 - May 2018',
+        role: 'Frontend Developer',
     },
     {
-        id: 'xango-content',
-        role: 'Web Content Manager',
         company: 'XanGo',
-        range: 'Mar 2010 – Jul 2013',
-        location: 'Lehi, UT',
         highlights: [
             'Web and email content across WordPress, Drupal, and in-house systems; Lyris and ExactTarget campaigns.',
             'Coordinated web projects and email performance reporting; consistent brand across digital properties.',
         ],
+        id: 'xango-content',
+        location: 'Lehi, UT',
+        range: 'Mar 2010 - Jul 2013',
+        role: 'Web Content Manager',
     },
     {
-        id: 'xango-desk',
-        role: 'Service Desk Specialist',
         company: 'XanGo',
-        range: 'Jun 2005 – Mar 2010',
-        location: 'Lehi, UT',
         highlights: [
             'Supervisor, technician, and agent roles; training on Windows and Mac; Apple Certified Technical Coordinator.',
         ],
+        id: 'xango-desk',
+        location: 'Lehi, UT',
+        range: 'Jun 2005 - Mar 2010',
+        role: 'Service Desk Specialist',
     },
     {
-        id: 'xango-cs',
-        role: 'Customer Service Agent',
         company: 'XanGo',
-        range: 'Feb 2005 – May 2005',
-        location: 'Lehi, UT',
         highlights: [
             'Inbound/outbound support for distributors; account assistance and solutions.',
         ],
+        id: 'xango-cs',
+        location: 'Lehi, UT',
+        range: 'Feb 2005 - May 2005',
+        role: 'Customer Service Agent',
     },
 ];
 
 export const education: EducationItem[] = [
     {
         degree: 'Bachelor of Science, Business Administration',
-        school: 'University of Utah',
-        range: '2006 – 2012',
         location: 'Salt Lake City, UT',
+        range: '2006 - 2012',
+        school: 'University of Utah',
     },
     {
         degree: 'Associate of Science, Business and Computer Science',
-        school: 'Salt Lake Community College',
-        range: '2004 – 2007',
         location: 'Taylorsville, UT',
+        range: '2004 - 2007',
+        school: 'Salt Lake Community College',
     },
 ];
 
 export const certifications: Certification[] = [
-    { name: 'Web Design Professional', issuer: 'CIW', issued: 'Jul 2011' },
+    { issued: 'Jul 2011', issuer: 'CIW', name: 'Web Design Professional' },
     {
-        name: 'Microsoft Certified Technology Specialist: .NET Framework 4, Web Applications',
-        issuer: 'Microsoft',
         issued: 'May 2011',
+        issuer: 'Microsoft',
+        name: 'Microsoft Certified Technology Specialist: .NET Framework 4, Web Applications',
     },
-    { name: 'Apple Certified Technical Coordinator 10.4', issuer: 'Apple', issued: 'May 2007' },
+    { issued: 'May 2007', issuer: 'Apple', name: 'Apple Certified Technical Coordinator 10.4' },
 ];
 
 export const skillGroups: SkillGroup[] = [
     {
-        title: 'Frontend',
         skills: [
             'React',
             'Next.js',
@@ -193,13 +194,13 @@ export const skillGroups: SkillGroup[] = [
             'Webpack',
             'Storybook',
         ],
+        title: 'Frontend',
     },
     {
-        title: 'Backend & APIs',
         skills: ['Node.js', 'Express', 'REST', 'GraphQL'],
+        title: 'Backend & APIs',
     },
     {
-        title: 'Quality & DevOps',
         skills: [
             'Git',
             'Bitbucket',
@@ -211,9 +212,9 @@ export const skillGroups: SkillGroup[] = [
             'ESLint',
             'Prettier',
         ],
+        title: 'Quality & DevOps',
     },
     {
-        title: 'AI',
         skills: [
             'Cursor',
             'Antigravity',
@@ -226,34 +227,35 @@ export const skillGroups: SkillGroup[] = [
             'Flux · flux.dev',
             'Prompt & agent workflows',
         ],
+        title: 'AI',
     },
 ];
 
 export const projects: ProjectItem[] = [
     {
-        id: 'trade',
-        title: 'Trade',
         description:
             'Scaled an MVP with cross-functional teams: Git, Bitbucket, Docker, Kubernetes, Jenkins. Next.js, TypeScript, React, MUI; Jest and RTL. Trade professionals built boards, shared resources and social posts, earned kickbacks, and generated PDFs for accounting.',
         href: 'https://www.bedbathandbeyond.com/trade/profiles/1/Tiffany%20Doe',
-        imageSrc: '/trade.jpeg',
+        id: 'trade',
         imageAlt: 'Trade product',
+        imageSrc: '/trade.jpeg',
+        title: 'Trade',
     },
     {
-        id: 'loyalty',
-        title: 'Loyalty (Beyond+)',
         description:
             'Mobile-first UX, performance, Core Web Vitals, testability, ESLint/Prettier. Helped relaunch Beyond+ with new APIs alongside the Ireland-based team.',
         href: 'https://www.bedbathandbeyond.com/beyondplus/benefits',
-        imageSrc: '/loyalty.jpeg',
+        id: 'loyalty',
         imageAlt: 'Beyond+ loyalty',
+        imageSrc: '/loyalty.jpeg',
+        title: 'Loyalty (Beyond+)',
     },
 ];
 
 export const contact: Contact = {
     email: 'itzjonas@gmail.com',
-    linkedinLabel: 'linkedin.com/in/jasonseegmiller',
-    linkedinHref: 'https://www.linkedin.com/in/jasonseegmiller',
-    githubLabel: 'github.com/itzjonas',
     githubHref: 'https://github.com/itzjonas',
+    githubLabel: 'github.com/itzjonas',
+    linkedinHref: 'https://www.linkedin.com/in/jasonseegmiller',
+    linkedinLabel: 'linkedin.com/in/jasonseegmiller',
 };

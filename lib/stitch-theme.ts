@@ -5,20 +5,20 @@
  * plan’s sleek + synthwave direction (dark base, cyan/magenta accents, ROUND_EIGHT cards).
  */
 export const stitchThemeFallback = {
+    bodyFontHint: 'DM_SANS' as const,
+    headlineFontHint: 'ORBITRON' as const,
     namedColors: {
+        accent: '#ff9f1c',
         background: '#0c0618',
-        surface: '#150a24',
-        surfaceElevated: '#1e0f32',
+        border: '#ff00ff',
         primary: '#00e5ff',
         secondary: '#ff2a8c',
+        surface: '#150a24',
+        surfaceElevated: '#1e0f32',
         tertiary: '#7c3aed',
-        accent: '#ff9f1c',
         text: '#e8e4ef',
         textMuted: '#9b92b0',
-        border: '#ff00ff',
     },
     /** Maps Stitch DesignTheme.roundness ROUND_* to Tailwind-ish radius */
     roundness: 'ROUND_EIGHT' as const,
-    bodyFontHint: 'DM_SANS' as const,
-    headlineFontHint: 'ORBITRON' as const,
 } as const;
