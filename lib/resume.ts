@@ -26,9 +26,16 @@ export type EducationItem = {
 };
 
 export type Certification = {
+    href?: string;
+    id?: string;
+    imageAlt?: string;
+    /** Path under /public, e.g. /certifications/foo.png */
+    imageSrc?: string;
     issued: string;
     issuer: string;
     name: string;
+    /** Set when planned; add href + issued date when the cert is earned */
+    pending?: boolean;
 };
 
 export type SkillGroup = {
@@ -172,6 +179,52 @@ export const education: EducationItem[] = [
 ];
 
 export const certifications: Certification[] = [
+    {
+        href: 'https://www.hackerrank.com/certificates/7ffa7ee91ab4',
+        id: 'hackerrank-javascript-intermediate',
+        imageAlt: 'HackerRank certificate: JavaScript (Intermediate)',
+        imageSrc: '/certifications/hackerrank-javascript-intermediate.png',
+        issued: 'Apr 2026',
+        issuer: 'HackerRank',
+        name: 'JavaScript (Intermediate)',
+    },
+    {
+        href: 'https://www.hackerrank.com/certificates/9db252691240',
+        id: 'hackerrank-frontend-react',
+        imageAlt: 'HackerRank certificate: Frontend Developer (React)',
+        imageSrc: '/certifications/hackerrank-frontend-react.png',
+        issued: 'Apr 2026',
+        issuer: 'HackerRank',
+        name: 'Frontend Developer (React) - Role Certification',
+    },
+    {
+        id: 'hackerrank-node-intermediate',
+        issued: '—',
+        issuer: 'HackerRank',
+        name: 'Node (Intermediate)',
+        pending: true,
+    },
+    {
+        id: 'hackerrank-rest-api-intermediate',
+        issued: '—',
+        issuer: 'HackerRank',
+        name: 'Rest API (Intermediate)',
+        pending: true,
+    },
+    {
+        id: 'hackerrank-problem-solving-intermediate',
+        issued: '—',
+        issuer: 'HackerRank',
+        name: 'Problem Solving (Intermediate)',
+        pending: true,
+    },
+    {
+        id: 'hackerrank-software-engineer',
+        issued: '—',
+        issuer: 'HackerRank',
+        name: 'Software Engineer',
+        pending: true,
+    },
     { issued: 'Jul 2011', issuer: 'CIW', name: 'Web Design Professional' },
     {
         issued: 'May 2011',
