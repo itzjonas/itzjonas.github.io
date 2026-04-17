@@ -17,7 +17,7 @@
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.8.0",
-    "next": "^16.2.3",
+    "next": "^16.2.4",
     "next-mdx-remote": "^6",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
@@ -35,12 +35,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.2.3",
+    "eslint-config-next": "^16.2.4",
     "eslint-plugin-perfectionist": "^5.8.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
-    "typescript": "^6"
+    "typescript": "^6.0.3"
   }
 }
