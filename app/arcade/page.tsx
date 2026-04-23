@@ -24,6 +24,12 @@ export default function ArcadePage() {
             title: 'Pac-Man Turbo',
             wip: false,
         },
+        {
+            description: 'Stack neon tetrominoes, clear lines, and survive the speed ramp.',
+            link: '/arcade/tetris',
+            title: 'Neon Tetris Matrix',
+            wip: false,
+        },
     ];
 
     return (
