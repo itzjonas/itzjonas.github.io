@@ -8,7 +8,7 @@ export function Certifications() {
     return (
         <section className="portfolio-section mb-16 md:mb-24" id="certifications">
             <SectionTitle label="CREDENTIALS" sectionNumber={5} />
-            <ul className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3">
                 {certifications.map((c) => {
                     const meta = `${c.issuer} · ${c.pending ? 'Planned' : c.issued}`;
                     const showImage = Boolean(c.imageSrc);
@@ -16,7 +16,7 @@ export function Certifications() {
 
                     const imageBlock =
                         showImage || showPendingPlaceholder ? (
-                            <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-synth-primary/20 bg-black/40">
+                            <div className="relative h-44 w-full overflow-hidden border-b border-synth-primary/20 bg-black/40">
                                 {showImage ? (
                                     <Image
                                         alt={c.imageAlt ?? c.name}
@@ -41,7 +41,7 @@ export function Certifications() {
                         </div>
                     );
 
-                    const cardClass = `portfolio-card flex flex-col overflow-hidden flex-1 min-w-[200px] text-sm text-synth-text-muted ${c.pending ? 'opacity-75' : ''}`;
+                    const cardClass = `portfolio-card flex h-full flex-col overflow-hidden text-sm text-synth-text-muted ${c.pending ? 'opacity-75' : ''}`;
 
                     if (c.href && !c.pending) {
                         return (

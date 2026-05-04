@@ -180,13 +180,13 @@ export const education: EducationItem[] = [
 
 export const certifications: Certification[] = [
     {
-        href: 'https://www.hackerrank.com/certificates/7ffa7ee91ab4',
-        id: 'hackerrank-javascript-intermediate',
-        imageAlt: 'HackerRank certificate: JavaScript (Intermediate)',
-        imageSrc: '/certifications/hackerrank-javascript-intermediate.png',
+        href: 'https://www.hackerrank.com/certificates/6bd811791ca0',
+        id: 'hackerrank-software-engineer',
+        imageAlt: 'HackerRank certificate: Software Engineer',
+        imageSrc: '/certifications/hackerrank-software-engineer.png',
         issued: 'Apr 2026',
         issuer: 'HackerRank',
-        name: 'JavaScript (Intermediate)',
+        name: 'Software Engineer - Role Certification',
     },
     {
         href: 'https://www.hackerrank.com/certificates/9db252691240',
@@ -196,6 +196,15 @@ export const certifications: Certification[] = [
         issued: 'Apr 2026',
         issuer: 'HackerRank',
         name: 'Frontend Developer (React) - Role Certification',
+    },
+    {
+        href: 'https://www.hackerrank.com/certificates/7ffa7ee91ab4',
+        id: 'hackerrank-javascript-intermediate',
+        imageAlt: 'HackerRank certificate: JavaScript (Intermediate)',
+        imageSrc: '/certifications/hackerrank-javascript-intermediate.png',
+        issued: 'Apr 2026',
+        issuer: 'HackerRank',
+        name: 'JavaScript (Intermediate)',
     },
     {
         href: 'https://www.hackerrank.com/certificates/39f616b6ebef',
@@ -220,13 +229,6 @@ export const certifications: Certification[] = [
         issued: '—',
         issuer: 'HackerRank',
         name: 'Problem Solving (Intermediate)',
-        pending: true,
-    },
-    {
-        id: 'hackerrank-software-engineer',
-        issued: '—',
-        issuer: 'HackerRank',
-        name: 'Software Engineer',
         pending: true,
     },
     { issued: 'Jul 2011', issuer: 'CIW', name: 'Web Design Professional' },
