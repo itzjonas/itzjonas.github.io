@@ -18,7 +18,11 @@
     --synth-text-muted: #8a8799;
     --synth-border-glow: rgba(0, 229, 255, 0.35);
 
-    --gradient-hero: linear-gradient(90deg, #ff2a8c 0%, #00e5ff 100%);
+    --gradient-hero-start: #ff2a8c;
+    --gradient-hero-end: #00e5ff;
+    --portfolio-heading-color: #ff2a8c;
+
+    --gradient-hero: linear-gradient(90deg, var(--gradient-hero-start) 0%, var(--gradient-hero-end) 100%);
     --gradient-cta: linear-gradient(90deg, #ff2a8c 0%, #7c3aed 100%);
     --gradient-cta-hover: linear-gradient(90deg, #ff4a9c 0%, #9b7af0 100%);
     --gradient-border: linear-gradient(135deg, rgba(255, 42, 140, 0.6), rgba(0, 229, 255, 0.35));
@@ -235,7 +239,7 @@ main {
     font-family: var(--font-orbitron), system-ui, sans-serif;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--synth-secondary);
+    color: var(--portfolio-heading-color, var(--synth-secondary));
     text-shadow:
         0 0 12px rgba(255, 42, 140, 0.45),
         0 0 28px rgba(0, 229, 255, 0.2);
@@ -245,13 +249,18 @@ main {
     font-family: var(--font-mono), ui-monospace, monospace;
 }
 
+.portfolio-root ::selection {
+    background: color-mix(in srgb, var(--gradient-hero-end) 35%, transparent);
+    color: var(--synth-text);
+}
+
 .text-gradient-hero {
     display: inline-block;
     max-width: 100%;
     line-height: 1.12;
     padding-bottom: 0.18em;
     /* Room below baseline so descenders (g, y, p) aren’t clipped by background-clip */
-    background: var(--gradient-hero);
+    background: linear-gradient(90deg, var(--gradient-hero-start) 0%, var(--gradient-hero-end) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
