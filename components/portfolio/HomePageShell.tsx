@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 import { HeroThreeScene } from '@/components/portfolio/HeroThreeScene';
@@ -40,16 +41,26 @@ function shouldIgnoreShortcutTarget(target: EventTarget | null): boolean {
         return false;
     }
 
-    if (target.closest('input, textarea, select, [contenteditable="true"], [role="dialog"]')) {
+    const tag = target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') {
         return true;
     }
 
-    return false;
+    return target.isContentEditable;
 }
 
-const SECTION_IDS = ['about', 'skills', 'experience', 'education', 'certifications', 'projects', 'contact'] as const;
+const SECTION_IDS = [
+    'section-about',
+    'section-skills',
+    'section-experience',
+    'section-education',
+    'section-certifications',
+    'section-projects',
+    'section-contact',
+];
 
 export function HomePageShell({ children }: { children: React.ReactNode }) {
+    const router = useRouter();
     const rootRef = useRef<HTMLDivElement | null>(null);
     const [accent, setAccent] = useState<HomeNameAccent>('default');
     const [randomGradient, setRandomGradient] = useState<{ end: string; start: string } | null>(null);
@@ -125,7 +136,7 @@ export function HomePageShell({ children }: { children: React.ReactNode }) {
 
             if (e.key === 'a' || e.key === 'A') {
                 e.preventDefault();
-                window.location.assign('/arcade');
+                router.push('/arcade');
 
                 return;
             }
@@ -142,7 +153,7 @@ export function HomePageShell({ children }: { children: React.ReactNode }) {
         window.addEventListener('keydown', onKeyDown);
 
         return () => window.removeEventListener('keydown', onKeyDown);
-    }, []);
+    }, [router]);
 
     const ctx = useMemo(() => ({ accent }), [accent]);
 

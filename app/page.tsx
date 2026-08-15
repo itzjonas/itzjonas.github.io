@@ -1,4 +1,3 @@
-import { HomePageShell } from '@/components/portfolio/HomePageShell';
 import {
     About,
     Certifications,
@@ -9,6 +8,7 @@ import {
     Projects,
     Skills,
 } from '@/components/portfolio/home';
+import { HomePageShell } from '@/components/portfolio/HomePageShell';
 
 export default function Home() {
     return (

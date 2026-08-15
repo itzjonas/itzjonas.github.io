@@ -60,6 +60,7 @@ const KonamiWrapper: React.FC<KonamiWrapperProps> = ({
             const audio = new Audio('/audio/konami.mp3');
             audio.play();
 
+            // eslint-disable-next-line react-hooks/set-state-in-effect -- Sync unlocked songs when Konami code triggers
             setSongs((prevSongs) => [
                 ...prevSongs,
                 {

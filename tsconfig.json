@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "incremental": true,
     "isolatedModules": true,
@@ -19,7 +18,7 @@
         "./*"
       ],
       "@types/*": [
-        "types/*"
+        "./types/*"
       ]
     },
     "plugins": [

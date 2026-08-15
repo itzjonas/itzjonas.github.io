@@ -283,6 +283,7 @@ function TetrisCanvas() {
         try {
             const stored = Number(localStorage.getItem('tetris-high') ?? '0');
             if (!Number.isNaN(stored)) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect -- Client-only hydration from localStorage
                 setHighScore(stored);
             }
         } catch {

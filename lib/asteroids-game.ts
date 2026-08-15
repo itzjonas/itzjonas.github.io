@@ -32,7 +32,7 @@ export type GameState = {
     asteroids: Asteroid[];
     bullets: Bullet[];
     height: number;
-    ship: Ship | null;
+    ship: null | Ship;
     width: number;
 };
 

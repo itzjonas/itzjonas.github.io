@@ -97,7 +97,7 @@ export function HeroThreeScene({ accentPrimary, accentSecondary }: HeroThreeScen
         ring.rotation.x = Math.PI / 2.35;
         group.add(ring);
 
-        let animationFrameId: number | null = null;
+        let animationFrameId: null | number = null;
         let last = performance.now();
 
         const resize = () => {

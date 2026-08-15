@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { type HomeNameAccent, useHomeAccent } from '@/components/portfolio/HomePageShell';
-
 import { contact, profile } from '@/lib/resume';
 
 const LINE1: Record<HomeNameAccent, string> = {

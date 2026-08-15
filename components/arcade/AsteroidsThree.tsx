@@ -5,9 +5,9 @@ import * as THREE from 'three';
 
 import {
     createInitialGameState,
+    type GameState,
     resizeGameState,
     stepGame,
-    type GameState,
 } from '@/lib/asteroids-game';
 
 const PALETTE = {
@@ -46,8 +46,10 @@ export default function AsteroidsThree({
     const onScoreDeltaRef = useRef(onScoreDelta);
     const onScoreResetRef = useRef(onScoreReset);
 
-    onScoreDeltaRef.current = onScoreDelta;
-    onScoreResetRef.current = onScoreReset;
+    useEffect(() => {
+        onScoreDeltaRef.current = onScoreDelta;
+        onScoreResetRef.current = onScoreReset;
+    });
 
     useEffect(() => {
         const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -156,7 +158,7 @@ export default function AsteroidsThree({
         const bulletRoot = new THREE.Group();
         scene.add(bulletRoot);
 
-        let animationFrameId: number | null = null;
+        let animationFrameId: null | number = null;
         let lastTime = 0;
         const asteroidMeshes: THREE.LineLoop[] = [];
         const bulletMeshes: THREE.Line[] = [];
