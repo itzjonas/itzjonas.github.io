@@ -41,4 +41,4 @@ Here's a sneak peek at what's coming soon to this totally tubular site:
 -   **Interactive agent/PR workflow diagrams:** 🔀
     -   Mermaid (or similar) flows for general-purpose Cursor workflows: draft PR, ready gate, post-green ship, PR sweep, CI flake re-trigger, evidence, parallel tickets, ticket intake.
     -   Sourced from composable Cursor skills/commands; keep the diagrams reusable for any team.
-    -   Docs/gist first, interactive on this site later. Gist: https://gist.github.com/itzjonas/7efffde1cba5ceb754923b5ab0617283
+    -   Docs/gist first, interactive on this site later. Gist: https://gist.github.com/itzjonas/43822a9ac01ce083d6a2affb60e3071b
